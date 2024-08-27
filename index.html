@@ -83,7 +83,7 @@
                     <i class='bx bx-search-alt-2'></i>
                     <i class='bx bxs-cart-alt'></i>
                     <i class='bx bx-heart'></i>
-                    <div class="user-profile">
+                    <div class="user-profile" id="userIcon">
                         <i class='bx bxs-user-circle'></i>
                         <span class="username">guest</span>
                     </div>
@@ -101,6 +101,10 @@
             } else {
                 $('#username').text('Guest');
             }
+
+            $('#userIcon').on('click', function() {
+                window.location.href = 'login.html'; // Redirect to login page
+            });
         });
     </script>
     
