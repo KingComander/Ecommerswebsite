@@ -85,7 +85,7 @@
                     <i class='bx bx-heart'></i>
                     <div class="user-profile">
                         <i class='bx bxs-user-circle'></i>
-                        <span class="username">guest </span>
+                        <span class="username">guest</span>
                     </div>
                 </div>
             </div>
@@ -94,11 +94,13 @@
     
     <script>
         $(document).ready(function() {
-            // Example username - replace with dynamic username from your application
-            var username = 'Sumit'; // Example static username for demonstration
-            
-            // Set the username in all profile sections
-            $('.username').text(username);
+            // Check if user is logged in
+            var username = localStorage.getItem('username');
+            if (username) {
+                $('#username').text(username);
+            } else {
+                $('#username').text('Guest');
+            }
         });
     </script>
     

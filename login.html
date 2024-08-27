@@ -65,29 +65,26 @@
     <script>
         $(document).ready(function() {
             $('#loginForm').on('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
+                event.preventDefault(); // Prevent default form submission
                 
                 var username = $('#username').val();
                 var password = $('#password').val();
                 
-                if (username && password) {
-                    $.post('login.php', { username: username, password: password })
-                        .done(function(response) {
-                            if (response.success) {
-                                $('#message').html('<div class="alert alert-success">Login successful!</div>');
-                                // Redirect to the home page after successful login
-                                setTimeout(function() {
-                                    window.location.href = 'index.html'; // Redirect to the protected page
-                                }, 1000);
-                            } else {
-                                $('#message').html('<div class="alert alert-danger">' + response.message + '</div>');
-                            }
-                        })
-                        .fail(function() {
-                            $('#message').html('<div class="alert alert-danger">An error occurred. Please try again.</div>');
-                        });
+                // Example static username and password
+                var validUsername = 'JohnDoe';
+                var validPassword = 'password123';
+                
+                if (username === validUsername && password === validPassword) {
+                    // Store username in local storage
+                    localStorage.setItem('username', username);
+                    $('#message').html('<div class="alert alert-success">Login successful!</div>');
+                    
+                    // Redirect to the home page
+                    setTimeout(function() {
+                        window.location.href = 'index.html'; // Redirect to the protected page
+                    }, 1000);
                 } else {
-                    $('#message').html('<div class="alert alert-danger">Please fill in both fields.</div>');
+                    $('#message').html('<div class="alert alert-danger">Invalid username or password.</div>');
                 }
             });
         });
