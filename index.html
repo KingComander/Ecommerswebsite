@@ -25,50 +25,143 @@
             font-style: normal;
         }
 
-        .navbar-wrapper{
-            padding: 0 10rem;
-            z-index: 999;
-        }
-        .navbar{
-            display: flex;
-            justify-content: space-around;
-            position: fixed;
-            width: 80%;
-        }
-        .collapse{
-            gap: 4rem;
-            color: black;
-            font-size: 20px ;
-            font-weight: 666;
-        }
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        img.custom-logo {
-            height: 100px;
-            width: 100px;
-            filter: drop-shadow(0 0 1px black);
-            color: black;
-        }
+/* Navbar wrapper */
+.navbar-wrapper {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: white;
+}
 
-        .icon {
-            display: flex;
-            align-items: center;
-            gap: 10px; /* Adjust spacing between icons as needed */
-        }
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10rem;
+    transition: background 0.3s ease, padding 0.3s ease;
+    width: 100%;
+}
 
-        .icon i {
-            font-size: 30px; /* Adjust icon size as needed */
-        }
-        
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 5px; /* Adjust spacing between icon and username */
-        }
+.navbar.sticky {
+    background: white;
+    padding: 0.5rem 10rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        .user-profile span {
-            font-size: 16px; /* Adjust font size of the username */
-            font-weight: bold; /* Optional: make the username bold */
-        }
+/* Navigation links */
+.collapse {
+    display: flex;
+    gap: 2rem;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.collapse a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Responsive menu toggle */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+/* Custom logo styling */
+img.custom-logo {
+    height: 80px;
+    width: 80px;
+    filter: drop-shadow(0 0 1px black);
+}
+
+/* Icon container */
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon i {
+    font-size: 20px;
+}
+
+/* User profile container */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.user-profile span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Large screens (laptops/desktops) */
+@media (min-width: 1200px) {
+    .navbar {
+        padding: 1rem 10rem;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .navbar {
+        padding: 1rem 5rem;
+    }
+
+    .collapse {
+        gap: 1.5rem;
+    }
+
+    img.custom-logo {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+/* Small screens (phones) */
+@media (max-width: 767px) {
+    .navbar {
+        padding: 1rem 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .collapse {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .collapse.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .icon, .user-profile {
+        display: none; /* Hide on small screens */
+    }
+}
+
 
         #Home{
             width: 100%;
@@ -123,44 +216,29 @@
 </head>
 <body>
     <div class="navbar-wrapper">
-        <nav class="navbar navbar-expand-lg">
-            <div class="collapse navbar-collapse" id="navbarsupportedContent">
-                <a class="navbar-brand" href="#">
-                    <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
-                </a>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Shop">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-                <div class="d-flex icon">
-                    <i class='bx bx-search-alt-2'></i>
-                    <i class='bx bxs-cart-alt'></i>
-                    <i class='bx bx-heart'></i>
-                    <div class="user-profile" id="userIcon">
-                        <i class='bx bxs-user-circle'></i>
-                        <span id="username"></span>
-                    </div>
-                </div>
+        <nav class="navbar">
+          <a class="navbar-brand" href="#">
+                <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
+            </a>
+            <div class="collapse">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsupportedContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="icon">
+                <i class="bx bx-search"></i> <!-- Example icon -->
+                <i class='bx bxs-cart-alt'></i>
+                <i class='bx bx-heart'></i>
+            <div class="user-profile" id="userIcon">
+                <i class="bx bx-user"></i> <!-- User icon -->
+                <span>Username</span>
+            </div>
+            </div>
+            <!-- Hamburger menu for smaller screens -->
+            <div class="hamburger-menu">
+                <i class="bx bx-menu"></i>
+            </div>
         </nav>
     </div>
 
@@ -191,6 +269,19 @@
 
             $('#userIcon').on('click', function() {
                 window.location.href = 'login.html'; // Redirect to login page
+            });
+            
+            $('.hamburger-menu').click(function() {
+                $('.collapse').toggleClass('active');
+            });
+
+            // jQuery for sticky navbar effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 0) {
+                    $('.navbar').addClass('sticky');
+                } else {
+                    $('.navbar').removeClass('sticky');
+                }
             });
         });
     </script>
