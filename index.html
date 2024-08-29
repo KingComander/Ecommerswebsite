@@ -17,6 +17,14 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <style>
+        @font-face {
+            font-family: 'Cooper';
+            src: url('fonts/Cooper.woff2') format('woff2'),
+                 url('fonts/Cooper.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         .navbar-wrapper{
             padding: 0 10rem;
             z-index: 999;
@@ -70,9 +78,32 @@
         }
 
         .left{
-            position: relative;
+            position: absolute;
             top: 50%;
-            left: 20%;
+            left: -5%;
+            transform: translate(40%,-50%);
+        }
+
+        .slide {
+            display: inline-block; /* Ensure that animation works smoothly */
+            animation: slideIn 2s ease-out; /* Adjust duration and easing as needed */
+            color: black; /* Start with a lighter color */
+            font-family: 'Cooper', serif; /* Apply the Cooper font */
+            font-size: 60px;
+            transition: color 2s ease-out; /* Smooth color transition */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(50%); /* Start from right outside */
+                opacity: 0; /* Start with hidden text */
+                color: #ccc; /* Start with a lighter color */
+            }
+            to {
+                transform: translateX(0); /* End at the final position */
+                opacity: 1; /* End with visible text */
+                color: black; /* End with a darker color */
+            }
         }
     </style>
 </head>
@@ -109,7 +140,7 @@
                     <i class='bx bx-heart'></i>
                     <div class="user-profile" id="userIcon">
                         <i class='bx bxs-user-circle'></i>
-                        <span class="username">guest</span>
+                        <span id="username"></span>
                     </div>
                 </div>
             </div>
@@ -129,11 +160,11 @@
     <script>
         $(document).ready(function() {
             // Check if user is logged in
-            var username = localStorage.getItem('username');
+            var username = localStorage.getItem('#username');
             if (username) {
                 $('#username').text(username);
             } else {
-                $('#username').text('Guest');
+                $('#username').text('guest');
             }
 
             $('#userIcon').on('click', function() {
