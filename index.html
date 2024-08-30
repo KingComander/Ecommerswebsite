@@ -199,18 +199,26 @@ img.custom-logo {
             }
         }
 
-        #shop{
+        #Shop{
             height: 60vh;
             width: 100%;
+            display: flex;
         }
 
         .women{
             margin: 20px;
             height: 50vh;
-            width: 40%;
-            box-shadow: 1px 1px  1px black;
-            background: url("png/banner-01.jpg") no-repeat center center;
-            background-size: cover;
+            width: 50vw;
+        }
+        .women img{
+          height: 25%;
+          width:75%;            
+          box-shadow: .5px .5px .5px 1px black;
+        }
+        .men img, .{
+          height: 25%;
+          width: 75%;
+          box-shadow: .5px .5px .5px 1px black;
         }
     </style>
 </head>
@@ -251,10 +259,18 @@ img.custom-logo {
     
     <section id="Shop">
         <div class="women">
-            <h1>Women</h1>
+            <img src="png/banner-01.jpg" alt="banner">
+            <h1>women</h1>
+            <h4>Spring 2018</h4>
         </div>
-        <div class="men"></div>
-        <div class="accessories"></div>
+        <div class="men">
+          <img src="png/banner-02.jpg" alt="banner">
+          <h1>Men</h1>
+          <h4>Spring 2018</h4>
+        </div>
+        <div class="accessories">
+          <img src="png/banner-03.jpg" alt="banner">
+        </div>
     </section>
     
     <script>
