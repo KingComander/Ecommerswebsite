@@ -47,6 +47,11 @@
             transition: background 0.3s ease, padding 0.3s ease;
             width: 100%;
         }
+        .nav-logo{
+            display: flex;
+            align-items: center;
+            gap: 8rem;
+        }
 
         .navbar.sticky {
             background: white;
@@ -211,15 +216,17 @@
             margin: 0 auto; /* Center item horizontally within its container */
             overflow: hidden; /* Ensures no overflow of the image */
             cursor: pointer; /* Show pointer cursor on hover */
+            box-shadow: 0 0 0 1px black;
+            box-sizing: border-box;
         }
 
         .item img {
             width: 100%; /* Image takes full width of the container */
-            height: 20rem; /* Set a fixed height */
+            height: 100%; /* Set a fixed height */
             object-fit: cover; /* Ensures the image covers the container */
             transition: transform 0.5s ease; /* Smooth transitions */
             filter: brightness(1); /* Default filter */
-            transform: scale(1.2); /* Default scale */
+            transform: scale(1); /* Default scale */
         }
 
         /* Overlay added on click */
@@ -272,7 +279,7 @@
 
         .shop-now {
             display: none; /* Initially hidden */
-            color: white; /* Text color for 'Shop Now' */
+            color: black; /* Text color for 'Shop Now' */
             text-decoration: underline; /* Underline for anchor tag */
             margin-top: 10px; /* Space above the anchor tag */
         }
@@ -281,15 +288,18 @@
 <body>
     <div class="navbar-wrapper">
         <nav class="navbar">
-            <a class="navbar-brand" href="#">
-                <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
-            </a>
-            <div class="collapse">
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Shop</a>
-                <a href="#">Services</a>
-                <a href="#">Contact</a>
+            <div class="nav-logo">
+                <a class="navbar-brand" href="#">
+                    <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
+                </a>
+                <div class="collapse">
+                        <a href="#Home">Home</a>
+                        <a href="#Shop">Shop</a>
+                        <a href="#">Features</a>
+                        <a href="#">Blog</a>
+                        <a href="#">About</a>
+                        <a href="#">Contact</a>
+                </div>
             </div>
             <div class="icon">
                 <i class="bx bx-search"></i> <!-- Example icon -->
