@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- jquery -->
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <!-- isotope -->
+    <!-- Isotope -->
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-    <!-- sweetalert -->
+    <!-- SweetAlert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- icon -->
+    <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
     <style>
         @font-face {
             font-family: 'Cooper';
@@ -24,155 +23,154 @@
         }
 
         /* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Navbar wrapper */
-.navbar-wrapper {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-}
+        /* Navbar wrapper */
+        .navbar-wrapper {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 10rem;
-    transition: background 0.3s ease, padding 0.3s ease;
-    width: 100%;
-}
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10rem;
+            transition: background 0.3s ease, padding 0.3s ease;
+            width: 100%;
+        }
 
-.navbar.sticky {
-    background: white;
-    padding: 0.5rem 10rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+        .navbar.sticky {
+            background: white;
+            padding: 0.5rem 10rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-/* Navigation links */
-.collapse {
-    display: flex;
-    gap: 2rem;
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-}
+        /* Navigation links */
+        .collapse {
+            display: flex;
+            gap: 2rem;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-.collapse a {
-    text-decoration: none;
-    color: black;
-}
+        .collapse a {
+            text-decoration: none;
+            color: black;
+        }
 
-/* Responsive menu toggle */
-.hamburger-menu {
-    display: none;
-    cursor: pointer;
-}
+        /* Responsive menu toggle */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
 
-/* Custom logo styling */
-img.custom-logo {
-    height: 80px;
-    width: 80px;
-    filter: drop-shadow(0 0 1px black);
-}
+        /* Custom logo styling */
+        img.custom-logo {
+            height: 80px;
+            width: 80px;
+            filter: drop-shadow(0 0 1px black);
+        }
 
-/* Icon container */
-.icon {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+        /* Icon container */
+        .icon {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-.icon i {
-    font-size: 20px;
-}
+        .icon i {
+            font-size: 20px;
+        }
 
-/* User profile container */
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        /* User profile container */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.user-profile span {
-    font-size: 16px;
-    font-weight: bold;
-}
+        .user-profile span {
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-/* Media Queries for Responsive Design */
+        /* Media Queries for Responsive Design */
 
-/* Large screens (laptops/desktops) */
-@media (min-width: 1200px) {
-    .navbar {
-        padding: 1rem 10rem;
-    }
-}
+        /* Large screens (laptops/desktops) */
+        @media (min-width: 1200px) {
+            .navbar {
+                padding: 1rem 10rem;
+            }
+        }
 
-/* Medium screens (tablets) */
-@media (min-width: 768px) and (max-width: 1199px) {
-    .navbar {
-        padding: 1rem 5rem;
-    }
+        /* Medium screens (tablets) */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .navbar {
+                padding: 1rem 5rem;
+            }
 
-    .collapse {
-        gap: 1.5rem;
-    }
+            .collapse {
+                gap: 1.5rem;
+            }
 
-    img.custom-logo {
-        height: 60px;
-        width: 60px;
-    }
-}
+            img.custom-logo {
+                height: 60px;
+                width: 60px;
+            }
+        }
 
-/* Small screens (phones) */
-@media (max-width: 767px) {
-    .navbar {
-        padding: 1rem 2rem;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+        /* Small screens (phones) */
+        @media (max-width: 767px) {
+            .navbar {
+                padding: 1rem 2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-    .collapse {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        margin-top: 1rem;
-    }
+            .collapse {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
 
-    .collapse.active {
-        display: flex;
-    }
+            .collapse.active {
+                display: flex;
+            }
 
-    .hamburger-menu {
-        display: block;
-        font-size: 30px;
-    }
+            .hamburger-menu {
+                display: block;
+                font-size: 30px;
+            }
 
-    .icon, .user-profile {
-        display: none; /* Hide on small screens */
-    }
-}
+            .icon, .user-profile {
+                display: none; /* Hide on small screens */
+            }
+        }
 
-
-        #Home{
+        #Home {
             width: 100%;
             height: 100vh;
-            background: url("png/slide-02.jpg")no-repeat center center;
+            background: url("png/slide-02.jpg") no-repeat center center;
             background-size: cover;
         }
 
-        .left{
+        .left {
             position: absolute;
             top: 50%;
             left: -5%;
-            transform: translate(40%,-50%);
+            transform: translate(40%, -50%);
         }
 
         .slide {
@@ -198,77 +196,98 @@ img.custom-logo {
         }
 
         /* Base styles for all devices */
-#Shop {
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    gap: 20px; /* Space between items */
-    justify-content: center; /* Center items within the container */
-    padding: 20px;
-}
+        #Shop {
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap to the next line */
+            gap: 20px; /* Space between items */
+            justify-content: center; /* Center items within the container */
+            padding: 20px;
+        }
 
-.item {
-    position: relative; /* Enables absolute positioning for text */
-    width: 100%; /* Full width on smaller screens */
-    max-width: 35rem; /* Limit the maximum width of each item */
-    margin: 0 auto; /* Center item horizontally within its container */
-}
+        .item {
+            position: relative; /* Enables absolute positioning for text */
+            width: 100%; /* Full width on smaller screens */
+            max-width: 35rem; /* Limit the maximum width of each item */
+            margin: 0 auto; /* Center item horizontally within its container */
+            overflow: hidden; /* Ensures no overflow of the image */
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
 
-.item img {
-    width: 100%; /* Image takes full width of the container */
-    height: 20rem; /* Set a fixed height */
-    object-fit: cover; /* Ensures the image covers the container */
-    box-shadow: 0.5px 0.5px 0.5px 1px black; /* Add a shadow around images */
-}
+        .item img {
+            width: 100%; /* Image takes full width of the container */
+            height: 20rem; /* Set a fixed height */
+            object-fit: cover; /* Ensures the image covers the container */
+            transition: transform 0.5s ease; /* Smooth transitions */
+            filter: brightness(1); /* Default filter */
+            transform: scale(1.2); /* Default scale */
+        }
 
-.item h1,
-.item h4 {
-    position: absolute; /* Position text over the image */
-    color: black; /* White text for contrast */
-    width: 100%; /* Full width to center text */
-    text-align: center; /* Center the text horizontally */
-    margin: 0; /* Remove default margins */
-    left: 25%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for horizontal centering */
-}
+        /* Overlay added on click */
+        .item.clicked img {
+            filter: none; /* Remove filter */
+            transform: scale(1); /* Reset scale */
+            position: relative; /* Ensure positioning context */
+        }
 
-.item h1 {
-    top: 20%; /* Center vertically */
-    transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
-    font-size: 2rem; /* Adjust the font size */
-}
+        .item.clicked::after {
+            content: ''; /* Required for pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 255, 0.5); /* Blue transparent overlay */
+            z-index: 1; /* Ensure overlay is above image */
+        }
 
-.item h4 {
-    top: 30%; /* Position subtitle below the title */
-    transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
-    font-size: 1rem; /* Adjust the font size */
-}
+        /* Ensure text is visible above the overlay */
+        .item.clicked h1, 
+        .item.clicked h4 {
+            color: white; /* Change text color to white */
+            filter: drop-shadow(1px 1px 1px black)
+        }
 
-/* Media Query for Tablets and Larger Screens */
-@media (min-width: 768px) {
-    .item {
-        width: 48%; /* Two items per row on tablets */
-    }
-}
+        .item h1,
+        .item h4 {
+            position: absolute; /* Position text over the image */
+            color: black; /* Default text color */
+            width: 100%; /* Full width to center text */
+            text-align: center; /* Center the text horizontally */
+            margin: 0; /* Remove default margins */
+            left: 25%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for horizontal centering */
+        }
 
-/* Media Query for Desktops and Larger Screens */
-@media (min-width: 1024px) {
-    .item {
-        width: 30%; /* Three items per row on desktops */
-    }
-}
+        .item h1 {
+            top: 20%; /* Position title */
+            transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
+            font-size: 2rem; /* Font size for title */
+        }
 
+        .item h4 {
+            top: 30%; /* Position subtitle below the title */
+            transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
+            font-size: 1rem; /* Font size for subtitle */
+        }
 
+        .shop-now {
+            display: none; /* Initially hidden */
+            color: white; /* Text color for 'Shop Now' */
+            text-decoration: underline; /* Underline for anchor tag */
+            margin-top: 10px; /* Space above the anchor tag */
+        }
     </style>
 </head>
 <body>
     <div class="navbar-wrapper">
         <nav class="navbar">
-          <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#">
                 <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
             </a>
             <div class="collapse">
                 <a href="#">Home</a>
                 <a href="#">About</a>
+                <a href="#">Shop</a>
                 <a href="#">Services</a>
                 <a href="#">Contact</a>
             </div>
@@ -276,10 +295,10 @@ img.custom-logo {
                 <i class="bx bx-search"></i> <!-- Example icon -->
                 <i class='bx bxs-cart-alt'></i>
                 <i class='bx bx-heart'></i>
-            <div class="user-profile" id="userIcon">
-                <i class="bx bx-user"></i> <!-- User icon -->
-                <span>Username</span>
-            </div>
+                <div class="user-profile" id="userIcon">
+                    <i class="bx bx-user"></i> <!-- User icon -->
+                    <span id="username">Username</span>
+                </div>
             </div>
             <!-- Hamburger menu for smaller screens -->
             <div class="hamburger-menu">
@@ -290,57 +309,89 @@ img.custom-logo {
 
     <section id="Home">
         <div class="left">
-                <h2>Men New-Season</h2>
-                <h1 class="slide">JACKETS & COATS</h1>
+            <h2>Men New-Season</h2>
+            <h1 class="slide">JACKETS & COATS</h1>
         </div>
     </section>
     
     <section id="Shop">
-    <div class="item women">
-        <img src="png/banner-01.jpg" alt="Women's banner">
-        <h1>Women</h1>
-        <h4>Spring 2018</h4>
-    </div>
-    <div class="item men">
-        <img src="png/banner-02.jpg" alt="Men's banner">
-        <h1>Men</h1>
-        <h4>Spring 2018</h4>
-    </div>
-    <div class="item accessories">
-        <img src="png/banner-03.jpg" alt="Accessories banner">
-        <h1>Accessories</h1>
-        <h4>Spring 2018</h4>
-    </div>
+        <div class="item women">
+            <img src="png/banner-01.jpg" alt="Women's banner">
+            <h1>Women</h1>
+            <h4>Spring 2018</h4>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="item men">
+            <img src="png/banner-02.jpg" alt="Men's banner">
+            <h1>Men</h1>
+            <h4>Spring 2018</h4>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
+        <div class="item accessories">
+            <img src="png/banner-03.jpg" alt="Accessories banner">
+            <h1>Accessories</h1>
+            <h4>Spring 2018</h4>
+            <a href="#" class="shop-now">Shop Now</a>
+        </div>
     </section>
 
-    
     <script>
-        $(document).ready(function() {
-            // Check if user is logged in
-            var username = localStorage.getItem('#username');
-            if (username) {
-                $('#username').text(username);
-            } else {
-                $('#username').text('guest');
+       $(document).ready(function() {
+    // Check if user is logged in
+    var username = localStorage.getItem('username');
+    if (username) {
+        $('#username').text(username);
+    } else {
+        $('#username').text('guest');
+    }
+
+    $('#userIcon').on('click', function() {
+        window.location.href = 'login.html'; // Redirect to login page
+    });
+
+    $('.hamburger-menu').click(function() {
+        $('.collapse').toggleClass('active');
+    });
+
+    // jQuery for sticky navbar effect
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 0) {
+            $('.navbar').addClass('sticky');
+        } else {
+            $('.navbar').removeClass('sticky');
+        }
+    });
+
+    // Handle card click
+    $('.item').on('click', function() {
+        // Remove 'clicked' class from all items
+        $('.item').removeClass('clicked');
+        $('.item .shop-now').hide(); // Hide 'Shop Now' for all items
+
+        // Add 'clicked' class only to the clicked item
+        $(this).addClass('clicked');
+        $(this).find('.shop-now').show(); // Show 'Shop Now' for clicked item
+    });
+
+    // Hover effect for images
+    $('.item').hover(
+        function () {
+            // On mouse enter, zoom the image
+            $(this).find('img').css({
+                'transform': 'scale(1.2)'
+            });
+        },
+        function () {
+            // On mouse leave, if not clicked, reset the zoom
+            if (!$(this).hasClass('clicked')) {
+                $(this).find('img').css({
+                    'transform': 'scale(1)'
+                });
             }
+        }
+    );
+});
 
-            $('#userIcon').on('click', function() {
-                window.location.href = 'login.html'; // Redirect to login page
-            });
-            
-            $('.hamburger-menu').click(function() {
-                $('.collapse').toggleClass('active');
-            });
-
-            // jQuery for sticky navbar effect
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 0) {
-                    $('.navbar').addClass('sticky');
-                } else {
-                    $('.navbar').removeClass('sticky');
-                }
-            });
-        });
     </script>
     
 </body>
