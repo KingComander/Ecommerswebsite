@@ -146,7 +146,7 @@
         }
 
         /* Base styles for all devices */
-        #Shop {
+        #persons {
             display: flex;
             flex-wrap: wrap; /* Allows items to wrap to the next line */
             gap: 20px; /* Space between items */
@@ -235,6 +235,16 @@
             margin-top: 10px; /* Space above the anchor tag */
             z-index: 99;
         }
+        
+        
+        .underline a:hover{
+          text-decoration: underline;
+        }
+        
+        .down{
+          position: relative;
+          top:10px;
+        }
 
         /* Media Queries for Responsive Design */
 
@@ -257,11 +267,6 @@
 
             .collapse {
                 gap: 1.5rem;
-            }
-            
-            .collapse a{
-                color: white;
-                filter: drop-shadow(0 1px 1px black);
             }
 
             img.custom-logo {
@@ -340,10 +345,10 @@
                 <a class="navbar-brand" href="#">
                     <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
                 </a>
-                <div class="collapse">
+                <div class="collapse" id="collapse-1">
                         <a href="#Home">Home</a>
                         <a href="#Shop">Shop</a>
-                        <a href="#">Features</a>
+                        <a href="#Features">Features</a>
                         <a href="#">Blog</a>
                         <a href="#">About</a>
                         <a href="#">Contact</a>
@@ -359,7 +364,7 @@
                 </div>
             </div>
             <!-- Hamburger menu for smaller screens -->
-            <div class="hamburger-menu">
+            <div class="hamburger-menu" id="hamburger-menu-1">
                 <i class="bx bx-menu"></i>
             </div>
         </nav>
@@ -372,7 +377,7 @@
         </div>
     </section>
     
-    <section id="Shop">
+    <section id="persons">
         <div class="item women">
             <img src="png/banner-01.jpg" alt="Women's banner">
             <h1>Women</h1>
@@ -392,6 +397,30 @@
             <a href="#" class="shop-now">Shop Now</a>
         </div>
     </section>
+    
+    <section id="product">
+        <div  class="navbar">
+            <div class="custom-logo">
+              <h2>PRODUCT OVERVIEW</h2>
+              <div class="collapse underline" id="collapse-2">
+                <a href="#All products">All products</a>
+                <a href="#Clothes">Clothes</a>
+                <a href="#accessories">accessories</a>
+                <a href="#Belt">Belt</a>
+                <a href="#Shoes">Shoes</a>
+                <a href="#watches">watches</a>
+              </div>
+            </div>
+            <div class="icon down">
+              <i class='bx bx-filter'>filter</i>
+              <i class="bx bx-search"></i>
+            </div>
+            <!-- Hamburger menu for smaller screens -->
+            <div class="hamburger-menu" id="hamburger-menu-2">
+                <i class="bx bx-menu"></i>
+            </div>
+        </div>
+    </section>
 
     <script>
        $(document).ready(function() {
@@ -407,9 +436,14 @@
         window.location.href = 'login.html'; // Redirect to login page
     });
 
-    $('.hamburger-menu').click(function() {
-        $('.collapse').toggleClass('active');
+    $('#hamburger-menu-1').click(function () {
+                $('#collapse-1').toggleClass('active');
     });
+
+    $('#hamburger-menu-2').click(function () {
+                $('#collapse-2').toggle();
+    });
+
 
     // jQuery for sticky navbar effect
     $(window).scroll(function() {
