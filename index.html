@@ -109,61 +109,6 @@
             font-weight: bold;
         }
 
-        /* Media Queries for Responsive Design */
-
-        /* Large screens (laptops/desktops) */
-        @media (min-width: 1200px) {
-            .navbar {
-                padding: 1rem 10rem;
-            }
-        }
-
-        /* Medium screens (tablets) */
-        @media (min-width: 768px) and (max-width: 1199px) {
-            .navbar {
-                padding: 1rem 5rem;
-            }
-
-            .collapse {
-                gap: 1.5rem;
-            }
-
-            img.custom-logo {
-                height: 60px;
-                width: 60px;
-            }
-        }
-
-        /* Small screens (phones) */
-        @media (max-width: 767px) {
-            .navbar {
-                padding: 1rem 2rem;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .collapse {
-                display: none;
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                margin-top: 1rem;
-            }
-
-            .collapse.active {
-                display: flex;
-            }
-
-            .hamburger-menu {
-                display: block;
-                font-size: 30px;
-            }
-
-            .icon, .user-profile {
-                display: none; /* Hide on small screens */
-            }
-        }
-
         #Home {
             width: 100%;
             height: 100vh;
@@ -251,7 +196,8 @@
         .item.clicked h1, 
         .item.clicked h4 {
             color: white; /* Change text color to white */
-            filter: drop-shadow(1px 1px 1px black)
+            z-index: 99;
+        
         }
 
         .item h1,
@@ -278,10 +224,112 @@
         }
 
         .shop-now {
+            position: absolute; /* Position text over the image */
+            bottom: 10%;
+            left: 25%;
+            font-size: 2rem;
+            transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
             display: none; /* Initially hidden */
-            color: black; /* Text color for 'Shop Now' */
+            color: white; /* Text color for 'Shop Now' */
             text-decoration: underline; /* Underline for anchor tag */
             margin-top: 10px; /* Space above the anchor tag */
+            z-index: 99;
+        }
+
+        /* Media Queries for Responsive Design */
+
+        /* Large screens (laptops/desktops) */
+        @media (min-width: 1200px) {
+            .navbar {
+                padding: 1rem 10rem;
+            }
+        }
+
+        /* Medium screens (tablets) */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .navbar {
+                padding: 1rem 5rem;
+            }
+            .nav-logo{
+                display: flex;
+                gap: 2rem;
+            }
+
+            .collapse {
+                gap: 1.5rem;
+            }
+            
+            .collapse a{
+                color: white;
+                filter: drop-shadow(0 1px 1px black);
+            }
+
+            img.custom-logo {
+                height: 60px;
+                width: 60px;
+            }
+
+            /* home */
+
+            .slide{
+                font-size: 40px;
+            }
+        }
+
+        /* Small screens (phones) */
+        @media (max-width: 767px) {
+            .navbar {
+                padding: 1rem 2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-logo{
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .collapse {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .collapse.active {
+                display: flex;
+            }
+
+            .hamburger-menu {
+                display: block;
+                font-size: 30px;
+            }
+
+            .icon, .user-profile {
+                display: none; /* Hide on small screens */
+            }
+
+            /* home */
+            .left h2{
+                font-size: 20px;
+            }
+             
+            .slide{
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 512px) {
+            /* home */
+            .left h2{
+                font-size: 10px;
+            }
+             
+            .slide{
+                font-size: 17px;
+            }
         }
     </style>
 </head>
