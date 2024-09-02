@@ -249,7 +249,7 @@
         
         /*product*/
         #product{
-          height: 100vh;
+          height: 50vh;
           width:100%;
           display: flex;
           flex-wrap: wrap;
@@ -272,13 +272,13 @@
   height: var(--card-height);
   position: relative;
   display: flex;
-  
   justify-content: center;
   align-items: flex-end;
   padding: 0 36px;
   perspective: 2500px;
   margin: 0 50px;
 }
+
 
 .cover-image {
   width: 100%;
@@ -348,7 +348,8 @@
 }
 
 .character {
-  width: 100%;
+  height:  300px;
+  width: 320px;;
   opacity: 0;
   transition: all 0.5s;
   position: absolute;
@@ -357,7 +358,14 @@
 
 .card:hover .character {
   opacity: 1;
-  transform: translate3d(0%, -30%, 100px);
+  transform: translate3d(0%, -10%, 100px);
+}
+.clothes, .accessorie, .belts ,.shoes, .watches{
+  display: none;
+}
+
+.product, .clothe{
+  display: flex;
 }
 
         /* Media Queries for Responsive Design */
@@ -504,7 +512,7 @@
             <h4>Spring 2018</h4>
             <a href="#" class="shop-now">Shop Now</a>
         </div>
-        <div class="item accessories">
+        <div class="item accessories-m">
             <img src="png/banner-03.jpg" alt="Accessories banner">
             <h1>Accessories</h1>
             <h4>Spring 2018</h4>
@@ -517,12 +525,12 @@
             <div class="custom-logo">
               <h2>PRODUCT OVERVIEW</h2>
               <div class="collapse underline" id="collapse-2">
-                <a href="#All products">All products</a>
-                <a href="#Clothes">Clothes</a>
-                <a href="#accessories">accessories</a>
-                <a href="#Belt">Belt</a>
-                <a href="#Shoes">Shoes</a>
-                <a href="#watches">watches</a>
+                <a class="All-products" href="#All products">All products</a>
+                <a class="Clothes" href="#Clothes">Clothes</a>
+                <a class="Accessories" href="#accessories">accessories</a>
+                <a class="Belts" href="#Belts">Belts</a>
+                <a class="Shoes" href="#Shoes">Shoes</a>
+                <a class="Watches" href="#watches">watches</a>
               </div>
             </div>
             <div class="icon down">
@@ -534,33 +542,47 @@
                 <i class="bx bx-menu"></i>
             </div>
         </div>
-        <div>
-          <div class="clothes">
+        <div class="product">
+          
+          <div class="clothe">
               <div class="card">
                 <div class="wrapper">
                   <img src="png/product-01.jpg" class="cover-image" />
                 </div>
                 <h4 class="title"></h4>
-                <img src="" class="character" />
+                <img src="/png/tinywow_change_bg_photo_63599297.png" class="character" />
               </div>
-            
               <div class="card">
                 <div class="wrapper">
                   <img src="png/product-03.jpg" class="cover-image" />
                 </div>
                 <h4 class="title"></h4>
-                <img src="" class="character" />
+                <img src="/png/IMG_20240901_103124.png" class="character" />
               </div>
           </div>
-          <div class="shoes">
+          
+          <div class="accessorie">
+            
+          </div>
+          
+          <div class="belt">
+            
+          </div>
+          
+          <div class="shoe">
             <div class="card">
               <div class="wrapper">
                 <img src="png/product-09.jpg" class="cover-image" />
               </div>
               <h4 class="title"></h4>
-              <img src="" class="character" />
+              <img src="/png/IMG_20240901_104519.png" class="character" />
             </div>
           </div>
+          
+          <div class="watche">
+            
+          </div>
+          
         </div>
     </section>
 
@@ -624,9 +646,65 @@
             }
         }
     );
-});
+   
+   function showCategory(category) {
+     if (category === 'All-products') {
+       $('.clothe > div').show(); // Show all categories
+       $('.shoe > div').show();
+       $('.accessorie > div').show();
+       $('.belt > div').show();
+       $('.watche > div').show();
+     } else if(category === 'Clothes') {
+       $('.clothe > div').show(); // Show all categories
+       $('.accessorie > div').hide();
+       $('.belt > div').hide();
+       $('.shoe > div').hide();
+       $('.watche > div').hide();// Hide all categories
+     }else if (category === 'Accessories') {
+       $('.clothe > div').hide();
+       $('.accessorie > div').show();
+       $('.belt > div').hide();
+       $('.shoe > div').hide();
+       $('.watche > div').hide(); // Hide all categories
+     }else if (category === 'Belts') {
+       $('.clothe > div').hide();
+       $('.accessorie > div').hide();
+       $('.belt > div').show();0
+       $('.shoe > div').hide();
+       $('.watche > div').hide();// Hide all categories
+     }else if (category === 'Shoes') {
+       $('.clothe > div').hide();
+       $('.accessorie > div').hide();
+       $('.belt > div').hide();
+       $('.shoe > div').show();
+       $('.watche > div').hide(); // Hide all categories
+     }else if (category === 'Watches') {
+       $('.clothe > div').hide(); // Hide all categories
+       $('.accessorie > div').hide();
+       $('.belt > div').hide();
+       $('.shoe > div').hide();
+       $('.watche > div').show();
+     }else{
+       $('.' + category).show(); // Show the selected category
+     }
+     
+     
+   }
+   
+    // Click event for each link
+            $('.navbar a').click(function(event) {
+                event.preventDefault();  // Prevent default link behavior
+                // Determine the category based on the clicked link
+                const category = $(this).attr('class').split(' ')[0];
 
-    </script>
-    
+                // Show the correct category
+                showCategory(category);
+            });
+
+            // Initially show all products
+            showCategory('All-products');
+            });
+</script>
 </body>
 </html>
+            
