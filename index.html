@@ -458,6 +458,152 @@
                 font-size: 17px;
             }
         }
+        
+        
+        
+        
+        /*Footer*/
+        
+        footer {  
+  background-color: #000;  
+  color: #fff;  
+  padding: 20px;  
+  font-family: Arial, sans-serif;  
+}  
+  
+.footer-content {  
+  display: flex;  
+  flex-wrap: wrap;  
+  justify-content: space-between;  
+  max-width: 1200px;  
+  margin: 0 auto;  
+}  
+  
+.footer-column {  
+  flex: 1;  
+  min-width: 200px;  
+  margin-bottom: 20px;  
+}  
+  
+h3 {  
+  font-size: 1.2em;  
+  margin-bottom: 15px;  
+  font-weight: bold;  
+}  
+  
+ul {  
+  list-style-type: none;  
+  padding: 0;  
+  margin: 0;  
+}  
+  
+li {  
+  margin-bottom: 10px;  
+}  
+  
+a {  
+  text-decoration: none;  
+  color: #fff;  
+}  
+  
+.social-icons {  
+  margin-top: 20px;  
+}  
+  
+.facebook-icon {  
+  background-image: url('facebook-icon.png');  
+  background-size: 20px 20px;  
+  width: 20px;  
+  height: 20px;  
+  display: inline-block;  
+  margin-right: 10px;  
+}  
+  
+.instagram-icon {  
+  background-image: url('instagram-icon.png');  
+  background-size: 20px 20px;  
+  width: 20px;  
+  height: 20px;  
+  display: inline-block;  
+  margin-right: 10px;  
+}  
+  
+.pinterest-icon {  
+  background-image: url('pinterest-icon.png');  
+  background-size: 20px 20px;  
+  width: 20px;  
+  height: 20px;  
+  display: inline-block;  
+}  
+  
+button {  
+  background-color: #007bff;  
+  color: #fff;  
+  border: none;  
+  padding: 10px 20px;  
+  cursor: pointer;  
+  font-size: 1em;  
+  font-weight: bold;  
+}  
+  
+input[type="email"] {  
+  padding: 10px;  
+  border: none;  
+  border-radius: 5px;  
+  width: 100%;  
+  margin-bottom: 10px;  
+}  
+  
+input[type="email"]:focus {  
+  outline: none;  
+  border: 1px solid #007bff;  
+}  
+  
+button:hover {  
+  background-color: #0069d9;  
+}  
+  
+/* Responsive design */  
+  
+@media (max-width: 1200px) {  
+  .footer-content {  
+   max-width: 100%;  
+  }  
+}  
+  
+@media (max-width: 768px) {  
+  .footer-column {  
+   flex-basis: 50%;  
+  }  
+}  
+  
+@media (max-width: 480px) {  
+  .footer-column {  
+   flex-basis: 100%;  
+  }  
+  .social-icons {  
+   margin-top: 10px;  
+  }  
+}  
+  
+@media (max-width: 320px) {  
+  .footer-content {  
+   padding: 10px;  
+  }  
+  .footer-column {  
+   margin-bottom: 10px;  
+  }  
+  h3 {  
+   font-size: 1em;  
+  }  
+  li {  
+   margin-bottom: 5px;  
+  }  
+  .social-icons {  
+   margin-top: 5px;  
+  }  
+}
+
     </style>
 </head>
 <body>
@@ -585,6 +731,45 @@
           
         </div>
     </section>
+    
+    <footer>  
+   <div class="footer-content">  
+    <div class="footer-column">  
+      <h3>CATEGORIES</h3>  
+      <ul>  
+       <li>Women</li>  
+       <li>Men</li>  
+       <li>Shoes</li>  
+       <li>Watches</li>  
+      </ul>  
+    </div>  
+    <div class="footer-column">  
+      <h3>HELP</h3>  
+      <ul>  
+       <li>Track Order</li>  
+       <li>Returns</li>  
+       <li>Shipping</li>  
+       <li>FAQs</li>  
+      </ul>  
+    </div>  
+    <div class="footer-column">  
+      <h3>GET IN TOUCH</h3>  
+      <p>Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879</p>  
+      <div class="social-icons">  
+       <a href="#" class="facebook-icon"></a>  
+       <a href="#" class="instagram-icon"></a>  
+       <a href="#" class="pinterest-icon"></a>  
+      </div>  
+    </div>  
+    <div class="footer-column">  
+      <h3>NEWSLETTER</h3>  
+      <form>  
+       <input type="email" placeholder="email@example.com">  
+       <button type="submit">SUBSCRIBE</button>  
+      </form>  
+    </div>  
+   </div>  
+  </footer>
 
     <script>
        $(document).ready(function() {
@@ -703,7 +888,15 @@
 
             // Initially show all products
             showCategory('All-products');
-            });
+            
+            
+            $('form').on('submit', function(e) {  
+   e.preventDefault();  
+   // Handle newsletter subscription  
+  });  
+  
+  
+});
 </script>
 </body>
 </html>
