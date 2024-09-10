@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- Isotope -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <!-- SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- CSS for layout and styling -->
+    <style>
+        @font-face {
+            font-family: 'Cooper';
+            src: url('fonts/Cooper.woff2') format('woff2'),
+                 url('fonts/Cooper.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar wrapper */
+        .navbar-wrapper {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10rem;
+            transition: background 0.3s ease, padding 0.3s ease;
+            width: 100%;
+        }
+        .nav-logo{
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .navbar.sticky {
+            background: white;
+            padding: 0.5rem 10rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation links */
+        .collapse {
+            display: flex;
+            gap: 2rem;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .collapse a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Responsive menu toggle */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Custom logo styling */
+        img.custom-logo {
+            height: 80px;
+            width: 150px;
+            filter: drop-shadow(0 0 1px black);
+        }
+
+        /* Icon container */
+        .icon {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon i {
+            font-size: 20px;
+        }
+
+        /* User profile container */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .user-profile span {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #Home {
+            width: 100%;
+            height: 100vh;
+            background: url("png/slide-02.jpg") no-repeat center center;
+            background-size: cover;
+        }
+
+        .shopnow{
+          position: absolute;
+          top: 130%;
+          left: -5%;
+          transform: translate(40%, -50%);
+        }
+
+        /* Large screens (laptops/desktops) */
+        @media (min-width: 1200px) {
+            .navbar {
+                padding: 1rem 10rem;
+            }
+        }
+
+        /* Medium screens (tablets) */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .navbar {
+                padding: 1rem 5rem;
+            }
+            .nav-logo{
+                display: flex;
+                gap: 2rem;
+            }
+
+            .collapse {
+                gap: 1.5rem;
+            }
+
+            img.custom-logo {
+                height: 60px;
+                width: 60px;
+            }
+
+            /* home */
+
+            .slide{
+                font-size: 40px;
+            }
+        }
+
+        /* Small screens (phones) */
+        @media (max-width: 767px) {
+            .navbar {
+                padding: 1rem 2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-logo{
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .collapse {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .collapse.active {
+                display: flex;
+            }
+
+            .hamburger-menu {
+                display: block;
+                font-size: 30px;
+            }
+
+            .icon, .user-profile {
+                display: none; /* Hide on small screens */
+            }
+
+            /* home */
+            .left h2{
+                font-size: 20px;
+            }
+             
+            .slide{
+                font-size: 30px;
+            }
+        }
+
+        /* product */
+        .isotope-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .p-b-35 {
+            padding-bottom: 35px;
+        }
+
+        .block2 {
+            border: 1px solid #e6e6e6;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .block2-pic {
+            position: relative;
+        }
+
+        .hov-img0 img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .block2-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .block2-txt {
+            padding: 15px;
+        }
+
+        .block2-txt-child1 {
+            margin-bottom: 10px;
+        }
+
+        .stext-104 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stext-105 {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .flex-c-m {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex-w {
+            flex-wrap: wrap;
+        }
+
+        .btn-addwish-b2 {
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .icon-heart1, .icon-heart2 {
+            width: 24px;
+            height: 24px;
+        }
+
+        .icon-heart2 {
+            display: none;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /*Footer*/
+        
+        footer {  
+          background-color: #000;  
+          color: #fff;  
+          padding: 20px;  
+          font-family: Arial, sans-serif;  
+        }  
+
+        .footer-content {  
+          display: flex;  
+          flex-wrap: wrap;  
+          justify-content: space-between;  
+          max-width: 1200px;  
+          margin: 0 auto;  
+        }  
+
+        .footer-column {  
+          flex: 1;  
+          min-width: 200px;  
+          margin-bottom: 20px;  
+        }  
+
+        h3 {  
+          font-size: 1.2em;  
+          margin-bottom: 15px;  
+          font-weight: bold;  
+        }  
+
+        ul {  
+          list-style-type: none;  
+          padding: 0;  
+          margin: 0;  
+        }  
+
+        li {  
+          margin-bottom: 10px;  
+        }  
+
+        a {  
+          text-decoration: none;  
+          color: #fff;  
+        }  
+
+        .social-icons {  
+          margin-top: 20px;  
+        }  
+
+        .facebook-icon {  
+          background-image: url('facebook-icon.png');  
+          background-size: 20px 20px;  
+          width: 20px;  
+          height: 20px;  
+          display: inline-block;  
+          margin-right: 10px;  
+        }  
+
+        .instagram-icon {  
+          background-image: url('instagram-icon.png');  
+          background-size: 20px 20px;  
+          width: 20px;  
+          height: 20px;  
+          display: inline-block;  
+          margin-right: 10px;  
+        }  
+
+        .pinterest-icon {  
+          background-image: url('pinterest-icon.png');  
+          background-size: 20px 20px;  
+          width: 20px;  
+          height: 20px;  
+          display: inline-block;  
+        }  
+
+        button {  
+          background-color: #007bff;  
+          color: #fff;  
+          border: none;  
+          padding: 10px 20px;  
+          cursor: pointer;  
+          font-size: 1em;  
+          font-weight: bold;  
+        }  
+
+        input[type="email"] {  
+          padding: 10px;  
+          border: none;  
+          border-radius: 5px;  
+          width: 100%;  
+          margin-bottom: 10px;  
+        }  
+
+        input[type="email"]:focus {  
+          outline: none;  
+          border: 1px solid #007bff;  
+        }  
+
+        button:hover {  
+          background-color: #0069d9;  
+        }  
+
+        /* Responsive design */  
+
+        @media (max-width: 1200px) {  
+          .footer-content {  
+          max-width: 100%;  
+          }  
+        }  
+
+        @media (max-width: 768px) {  
+          .footer-column {  
+          flex-basis: 50%;  
+          }  
+        }  
+
+        @media (max-width: 480px) {  
+          .footer-column {  
+          flex-basis: 100%;  
+          }  
+          .social-icons {  
+          margin-top: 10px;  
+          }  
+        }  
+
+        @media (max-width: 320px) {  
+          .footer-content {  
+          padding: 10px;  
+          }  
+          .footer-column {  
+          margin-bottom: 10px;  
+          }  
+          h3 {  
+          font-size: 1em;  
+          }  
+          li {  
+          margin-bottom: 5px;  
+          }  
+          .social-icons {  
+          margin-top: 5px;  
+          }  
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-wrapper"></div>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a class="navbar-brand" href="">
+                    <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
+                </a>
+                <div class="collapse" id="collapse-1">
+                        <a href="">Home</a>
+                        <a target="_blank" href="/product.html">Shop</a>
+                        <a target="_blank" href="">Features</a>
+                        <a target="_blank" href="/blog.html">Blog</a>
+                        <a target="_blank" href="/about.html">About</a>
+                        <a target="_blank" href="/contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="icon">
+                <i class="bx bx-search"></i> <!-- Example icon -->
+                <i class='bx bxs-cart-alt'></i>
+                <i class='bx bx-heart'></i>
+                <div class="user-profile" id="userIcon">
+                    <i class="bx bx-user"></i> <!-- User icon -->
+                    <span id="username">Username</span>
+                </div>
+            </div>
+            <!-- Hamburger menu for smaller screens -->
+            <div class="hamburger-menu" id="hamburger-menu-1">
+                <i class="bx bx-menu"></i>
+            </div>
+        </nav>
+    </div>
+
+    <div class="row isotope-grid">
+        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item category-name">
+            <!-- Block2 -->
+            <div class="block2">
+                <div class="block2-pic hov-img0">
+                    <input type="hidden" value="image/product/pr_imgs/img1.jpg" class="pr_img1">
+                    <input type="hidden" value="image/product/pr_imgs/img2.jpg" class="pr_img2">
+                    <input type="hidden" value="image/product/pr_imgs/img3.jpg" class="pr_img3">
+                    <input type="hidden" value="1" class="product_details">
+                    <img src="image/product/sample-product.jpg" alt="IMG-PRODUCT">
+                    <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                        Quick View
+                    </a>
+                </div>
+
+                <div class="block2-txt flex-w flex-t p-t-14">
+                    <div class="block2-txt-child1 flex-col-l">
+                        <a href="product-detail.php?id=1&&name=Sample Product" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6 product_name">
+                            Sample Product
+                        </a>
+                        <span class="stext-105 cl3">
+                            <b>₹ 499</b>
+                        </span>
+                    </div>
+
+                    <div class="block2-txt-child2 flex-r p-t-3">
+                        <form action="wishlist_config.php" method="POST" class="wishlistForm">
+                            <input type="hidden" value="1" name="wish_product">
+                            <input type="hidden" value="wishlist-session-value" name="wish">
+                            <button type="button" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more product blocks here if needed -->
+    </div>
+
+    <!-- Load more -->
+    <div class="flex-c-m flex-w w-full p-t-45">
+        <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+            Load More
+        </a>
+    </div>
+
+    <!-- Modal structure for Quick View -->
+    <div id="quickViewModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <!-- Dynamic content will be added here via jQuery -->
+            </div>
+        </div>
+    </div>
+
+
+    <footer>  
+        <div class="footer-content">  
+         <div class="footer-column">  
+           <h3>CATEGORIES</h3>  
+           <ul>  
+            <li>Women</li>  
+            <li>Men</li>  
+            <li>Shoes</li>  
+            <li>Watches</li>  
+           </ul>  
+         </div>  
+         <div class="footer-column">  
+           <h3>HELP</h3>  
+           <ul>  
+            <li>Track Order</li>  
+            <li>Returns</li>  
+            <li>Shipping</li>  
+            <li>FAQs</li>  
+           </ul>  
+         </div>  
+         <div class="footer-column">  
+           <h3>GET IN TOUCH</h3>  
+           <p>Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879</p>  
+           <div class="social-icons">  
+            <a href="#" class="facebook-icon"><i class='bx bxl-facebook-circle'></i></a>  
+            <a href="#" class="instagram-icon"><i class='bx bxl-instagram-alt' ></i></a>  
+            <a href="#" class="pinterest-icon"><i class='bx bxl-pinterest' ></i></a>  
+           </div>  
+         </div>  
+         <div class="footer-column">  
+           <h3>NEWSLETTER</h3>  
+           <form>  
+            <input type="email" placeholder="email@example.com">  
+            <button type="submit">SUBSCRIBE</button>  
+           </form>  
+         </div>  
+        </div>  
+       </footer>
+
+    <!-- jQuery Script -->
+    <script>
+        $(document).ready(function() {
+            // Quick View modal pop-up
+            $('.js-show-modal1').on('click', function(event) {
+                event.preventDefault();
+
+                // Fetch product details
+                var productImage = $(this).closest('.block2').find('img').attr('src');
+                var productName = $(this).closest('.block2-txt').find('.product_name').text();
+                var productPrice = $(this).closest('.block2-txt').find('.stext-105').text();
+
+                // Fill modal with product details
+                $('#quickViewModal .modal-body').html(`
+                    <img src="${productImage}" alt="${productName}" style="width:100%;">
+                    <h2>${productName}</h2>
+                    <p>${productPrice}</p>
+                `);
+
+                // Show modal
+                $('#quickViewModal').fadeIn();
+            });
+
+            // Close modal on close button click
+            $('.close').on('click', function() {
+                $('#quickViewModal').fadeOut();
+            });
+
+            // Add to Wishlist effect
+            $('.js-addwish-b2').on('click', function() {
+                var heartIcon = $(this).find('.icon-heart1');
+                var heartFilledIcon = $(this).find('.icon-heart2');
+
+                if (heartIcon.is(":visible")) {
+                    heartIcon.hide();
+                    heartFilledIcon.show();
+                } else {
+                    heartFilledIcon.hide();
+                    heartIcon.show();
+                }
+
+                // Optionally send AJAX request to add/remove wishlist item
+                // $.post("wishlist_config.php", {wish_product: $(this).closest('form').find('input[name="wish_product"]').val()});
+
+                return false; // prevent form submission
+            });
+        });
+    </script>
+
+</body>
+</html>

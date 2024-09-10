@@ -621,12 +621,12 @@
                     <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
                 </a>
                 <div class="collapse" id="collapse-1">
-                        <a href="./login.html" target="_blank">Home</a>
-                        <a href="">Shop</a>
-                        <a href="">Features</a>
-                        <a href="">Blog</a>
-                        <a href="">About</a>
-                        <a href="">Contact</a>
+                        <a href="">Home</a>
+                        <a target="_blank" href="/product.html">Shop</a>
+                        <a target="_blank" href="">Features</a>
+                        <a target="_blank" href="/blog.html">Blog</a>
+                        <a target="_blank" href="/about.html">About</a>
+                        <a target="_blank" href="/contact.html">Contact</a>
                 </div>
             </div>
             <div class="icon">
@@ -888,14 +888,14 @@
    }
    
     // Click event for each link
-            $('.navbar a').click(function(event) {
-                event.preventDefault();  // Prevent default link behavior
-                // Determine the category based on the clicked link
-                const category = $(this).attr('class').split(' ')[0];
+            // $('.navbar a').click(function(event) {
+            //     event.preventDefault();  // Prevent default link behavior
+            //     // Determine the category based on the clicked link
+            //     const category = $(this).attr('class').split(' ')[0];
 
-                // Show the correct category
-                showCategory(category);
-            });
+            //     // Show the correct category
+            //     showCategory(category);
+            // });
 
             // Initially show all products
             showCategory('All-products');
