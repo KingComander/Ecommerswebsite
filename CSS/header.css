@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'Cooper';
+    src: url('fonts/Cooper.woff2') format('woff2'),
+         url('fonts/Cooper.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar wrapper */
+.navbar-wrapper {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10rem;
+    transition: background 0.3s ease, padding 0.3s ease;
+    width: 100%;
+}
+.nav-logo{
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.navbar.sticky {
+    background: white;
+    padding: 0.5rem 10rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation links */
+.collapse {
+    display: flex;
+    gap: 2rem;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.collapse a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Responsive menu toggle */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+/* Custom logo styling */
+img.custom-logo {
+    height: 80px;
+    width: 150px;
+    filter: drop-shadow(0 0 1px black);
+}
+
+/* Icon container */
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon i {
+    font-size: 20px;
+}
+
+/* User profile container */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.user-profile span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Large screens (laptops/desktops) */
+@media (min-width: 1200px) {
+    .navbar {
+        padding: 1rem 10rem;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .navbar {
+        padding: 1rem 5rem;
+    }
+    .nav-logo{
+        display: flex;
+        gap: 2rem;
+    }
+
+    .collapse {
+        gap: 1.5rem;
+    }
+
+    img.custom-logo {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+/* Small screens (phones) */
+@media (max-width: 767px) {
+    .navbar {
+        padding: 1rem 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-logo{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .collapse {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .collapse.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+        font-size: 30px;
+    }
+
+    .icon, .user-profile {
+        display: none; /* Hide on small screens */
+    }
+}

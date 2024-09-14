@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KING STORE</title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- Isotope -->
@@ -13,102 +13,10 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- css -->
+    <link rel="stylesheet" href="/CSS/header.css">
+    <link rel="stylesheet" href="/CSS/footer.css">
     <style>
-        @font-face {
-            font-family: 'Cooper';
-            src: url('fonts/Cooper.woff2') format('woff2'),
-                 url('fonts/Cooper.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Navbar wrapper */
-        .navbar-wrapper {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 999;
-        }
-
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 10rem;
-            transition: background 0.3s ease, padding 0.3s ease;
-            width: 100%;
-        }
-        .nav-logo{
-            display: flex;
-            align-items: center;
-            gap: 5rem;
-        }
-
-        .navbar.sticky {
-            background: white;
-            padding: 0.5rem 10rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Navigation links */
-        .collapse {
-            display: flex;
-            gap: 2rem;
-            color: black;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .collapse a {
-            text-decoration: none;
-            color: black;
-        }
-
-        /* Responsive menu toggle */
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-        }
-
-        /* Custom logo styling */
-        img.custom-logo {
-            height: 80px;
-            width: 150px;
-            filter: drop-shadow(0 0 1px black);
-        }
-
-        /* Icon container */
-        .icon {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .icon i {
-            font-size: 20px;
-        }
-
-        /* User profile container */
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .user-profile span {
-            font-size: 16px;
-            font-weight: bold;
-        }
-
         #Home {
             width: 100%;
             height: 100vh;
@@ -379,30 +287,11 @@
 
         /* Large screens (laptops/desktops) */
         @media (min-width: 1200px) {
-            .navbar {
-                padding: 1rem 10rem;
-            }
+            
         }
 
         /* Medium screens (tablets) */
         @media (min-width: 768px) and (max-width: 1199px) {
-            .navbar {
-                padding: 1rem 5rem;
-            }
-            .nav-logo{
-                display: flex;
-                gap: 2rem;
-            }
-
-            .collapse {
-                gap: 1.5rem;
-            }
-
-            img.custom-logo {
-                height: 60px;
-                width: 60px;
-            }
-
             /* home */
 
             .slide{
@@ -412,38 +301,6 @@
 
         /* Small screens (phones) */
         @media (max-width: 767px) {
-            .navbar {
-                padding: 1rem 2rem;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-logo{
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-            }
-
-            .collapse {
-                display: none;
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                margin-top: 1rem;
-            }
-
-            .collapse.active {
-                display: flex;
-            }
-
-            .hamburger-menu {
-                display: block;
-                font-size: 30px;
-            }
-
-            .icon, .user-profile {
-                display: none; /* Hide on small screens */
-            }
 
             /* home */
             .left h2{
@@ -465,152 +322,6 @@
                 font-size: 17px;
             }
         }
-        
-        
-        
-        
-        /*Footer*/
-        
-        footer {  
-          background-color: #000;  
-          color: #fff;  
-          padding: 20px;  
-          font-family: Arial, sans-serif;  
-        }  
-
-        .footer-content {  
-          display: flex;  
-          flex-wrap: wrap;  
-          justify-content: space-between;  
-          max-width: 1200px;  
-          margin: 0 auto;  
-        }  
-
-        .footer-column {  
-          flex: 1;  
-          min-width: 200px;  
-          margin-bottom: 20px;  
-        }  
-
-        h3 {  
-          font-size: 1.2em;  
-          margin-bottom: 15px;  
-          font-weight: bold;  
-        }  
-
-        ul {  
-          list-style-type: none;  
-          padding: 0;  
-          margin: 0;  
-        }  
-
-        li {  
-          margin-bottom: 10px;  
-        }  
-
-        a {  
-          text-decoration: none;  
-          color: #fff;  
-        }  
-
-        .social-icons {  
-          margin-top: 20px;  
-        }  
-
-        .facebook-icon {  
-          background-image: url('facebook-icon.png');  
-          background-size: 20px 20px;  
-          width: 20px;  
-          height: 20px;  
-          display: inline-block;  
-          margin-right: 10px;  
-        }  
-
-        .instagram-icon {  
-          background-image: url('instagram-icon.png');  
-          background-size: 20px 20px;  
-          width: 20px;  
-          height: 20px;  
-          display: inline-block;  
-          margin-right: 10px;  
-        }  
-
-        .pinterest-icon {  
-          background-image: url('pinterest-icon.png');  
-          background-size: 20px 20px;  
-          width: 20px;  
-          height: 20px;  
-          display: inline-block;  
-        }  
-
-        button {  
-          background-color: #007bff;  
-          color: #fff;  
-          border: none;  
-          padding: 10px 20px;  
-          cursor: pointer;  
-          font-size: 1em;  
-          font-weight: bold;  
-        }  
-
-        input[type="email"] {  
-          padding: 10px;  
-          border: none;  
-          border-radius: 5px;  
-          width: 100%;  
-          margin-bottom: 10px;  
-        }  
-
-        input[type="email"]:focus {  
-          outline: none;  
-          border: 1px solid #007bff;  
-        }  
-
-        button:hover {  
-          background-color: #0069d9;  
-        }  
-
-        /* Responsive design */  
-
-        @media (max-width: 1200px) {  
-          .footer-content {  
-          max-width: 100%;  
-          }  
-        }  
-
-        @media (max-width: 768px) {  
-          .footer-column {  
-          flex-basis: 50%;  
-          }  
-        }  
-
-        @media (max-width: 480px) {  
-          .footer-column {  
-          flex-basis: 100%;  
-          }  
-          .social-icons {  
-          margin-top: 10px;  
-          }  
-        }  
-
-        @media (max-width: 320px) {  
-          .footer-content {  
-          padding: 10px;  
-          }  
-          .footer-column {  
-          margin-bottom: 10px;  
-          }  
-          h3 {  
-          font-size: 1em;  
-          }  
-          li {  
-          margin-bottom: 5px;  
-          }  
-          .social-icons {  
-          margin-top: 5px;  
-          }  
-        }
-
     </style>
 </head>
 <body>

@@ -1,0 +1,141 @@
+/*Footer*/
+        
+footer {  
+    background-color: #000;  
+    color: #fff;  
+    padding: 20px;  
+    font-family: Arial, sans-serif;  
+  }  
+
+  .footer-content {  
+    display: flex;  
+    flex-wrap: wrap;  
+    justify-content: space-between;  
+    max-width: 1200px;  
+    margin: 0 auto;  
+  }  
+
+  .footer-column {  
+    flex: 1;  
+    min-width: 200px;  
+    margin-bottom: 20px;  
+  }  
+
+  h3 {  
+    font-size: 1.2em;  
+    margin-bottom: 15px;  
+    font-weight: bold;  
+  }  
+
+  ul {  
+    list-style-type: none;  
+    padding: 0;  
+    margin: 0;  
+  }  
+
+  li {  
+    margin-bottom: 10px;  
+  }  
+
+  a {  
+    text-decoration: none;  
+    color: #fff;  
+  }  
+
+  .social-icons {  
+    margin-top: 20px;  
+  }  
+
+  .facebook-icon {  
+    background-image: url('facebook-icon.png');  
+    background-size: 20px 20px;  
+    width: 20px;  
+    height: 20px;  
+    display: inline-block;  
+    margin-right: 10px;  
+  }  
+
+  .instagram-icon {  
+    background-image: url('instagram-icon.png');  
+    background-size: 20px 20px;  
+    width: 20px;  
+    height: 20px;  
+    display: inline-block;  
+    margin-right: 10px;  
+  }  
+
+  .pinterest-icon {  
+    background-image: url('pinterest-icon.png');  
+    background-size: 20px 20px;  
+    width: 20px;  
+    height: 20px;  
+    display: inline-block;  
+  }  
+
+  button {  
+    background-color: #007bff;  
+    color: #fff;  
+    border: none;  
+    padding: 10px 20px;  
+    cursor: pointer;  
+    font-size: 1em;  
+    font-weight: bold;  
+  }  
+
+  input[type="email"] {  
+    padding: 10px;  
+    border: none;  
+    border-radius: 5px;  
+    width: 100%;  
+    margin-bottom: 10px;  
+  }  
+
+  input[type="email"]:focus {  
+    outline: none;  
+    border: 1px solid #007bff;  
+  }  
+
+  button:hover {  
+    background-color: #0069d9;  
+  }  
+
+  /* Responsive design */  
+
+  @media (max-width: 1200px) {  
+    .footer-content {  
+    max-width: 100%;  
+    }  
+  }  
+
+  @media (max-width: 768px) {  
+    .footer-column {  
+    flex-basis: 50%;  
+    }  
+  }  
+
+  @media (max-width: 480px) {  
+    .footer-column {  
+    flex-basis: 100%;  
+    }  
+    .social-icons {  
+    margin-top: 10px;  
+    }  
+  }  
+
+  @media (max-width: 320px) {  
+    .footer-content {  
+    padding: 10px;  
+    }  
+    .footer-column {  
+    margin-bottom: 10px;  
+    }  
+    h3 {  
+    font-size: 1em;  
+    }  
+    li {  
+    margin-bottom: 5px;  
+    }  
+    .social-icons {  
+    margin-top: 5px;  
+    }  
+  }
