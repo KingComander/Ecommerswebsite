@@ -16,6 +16,7 @@
     <!-- css -->
     <link rel="stylesheet" href="/CSS/header.css">
     <link rel="stylesheet" href="/CSS/footer.css">
+    <link rel="stylesheet" href="/CSS/product.css">
     <style>
         #Home {
             width: 100%;
@@ -160,128 +161,6 @@
           position: relative;
           top:10px;
         }
-        
-        
-        /*product*/
-        #product{
-          height: 100vh;
-          width:100%;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center;
-        }
-        
-        
-        /* cards*/
-        :root {
-            --card-width: calc(var(--card-height) / 1.5);
-            --card-height: 300px;
-        }
-        * {
-          box-sizing: border-box;
-        }
-
-        .card {
-          width: var(--card-width);
-          height: var(--card-height);
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          padding: 0 36px;
-          perspective: 2500px;
-          margin: 0 50px;
-        }
-
-
-        .cover-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        .wrapper {
-          transition: all 0.5s;
-          position: absolute;
-          width: 100%;
-          z-index: -1;
-        }
-
-        .card:hover .wrapper {
-          transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
-          box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-          -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-          -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-        }
-
-        .wrapper::before,
-        .wrapper::after {
-          content: "";
-          opacity: 0;
-          width: 100%;
-          height: 80px;
-          transition: all 0.5s;
-          position: absolute;
-          left: 0;
-        }
-        .wrapper::before {
-          top: 0;
-          height: 100%;
-          background-image: linear-gradient(
-            to top,
-            transparent 46%,
-            rgba(12, 13, 19, 0.5) 68%,
-            rgba(12, 13, 19) 97%
-          );
-        }
-        .wrapper::after {
-          bottom: 0;
-          opacity: 1;
-          background-image: linear-gradient(
-            to bottom,
-            transparent 46%,
-            rgba(12, 13, 19, 0.5) 68%,
-            rgba(12, 13, 19) 97%
-          );
-        }
-
-        .card:hover .wrapper::before,
-        .wrapper::after {
-          opacity: 1;
-        }
-
-        .card:hover .wrapper::after {
-          height: 120px;
-        }
-        .title {
-          width: 100%;
-          transition: transform 0.5s;
-        }
-        .card:hover .title {
-          transform: translate3d(0%, -50px, 100px);
-        }
-
-        .character {
-          height:  300px;
-          width: 320px;;
-          opacity: 0;
-          transition: all 0.5s;
-          position: absolute;
-          z-index: -1;
-        }
-
-        .card:hover .character {
-          opacity: 1;
-          transform: translate3d(0%, -10%, 100px);
-        }
-        .clothes, .accessorie, .belts ,.shoes, .watches{
-          display: none;
-        }
-
-        .product, .clothe{
-          display: flex;
-        }
 
         /* Media Queries for Responsive Design */
 
@@ -338,9 +217,9 @@
                         <a target="_blank" href="/blog.html">Blog</a>
                         <a target="_blank" href="/about.html">About</a>
                         <a target="_blank" href="/contact.html">Contact</a>
-                </div>
-            </div>
-            <div class="icon">
+                      </div>
+              </div>
+              <div class="icon">
                 <i class="bx bx-search"></i> <!-- Example icon -->
                 <i class='bx bxs-cart-alt'></i>
                 <i class='bx bx-heart'></i>
@@ -386,7 +265,7 @@
     </section>
     
     <section id="product">
-        <div  class="navbar">
+        <div  class="navbr">
             <div class="custom-logo">
               <h2>PRODUCT OVERVIEW</h2>
               <div class="collapse underline" id="collapse-2">
@@ -492,134 +371,8 @@
     </div>  
    </div>  
   </footer>
-
-    <script>
-       $(document).ready(function() {
-    // Check if user is logged in
-    var username = localStorage.getItem('username');
-    if (username) {
-        $('#username').text(username);
-    } else {
-        $('#username').text('guest');
-    }
-
-    $('#userIcon').on('click', function() {
-        window.location.href = 'login.html'; // Redirect to login page
-    });
-
-    $('#hamburger-menu-1').click(function () {
-                $('#collapse-1').toggleClass('active');
-    });
-
-    $('#hamburger-menu-2').click(function () {
-                $('#collapse-2').toggle();
-    });
-
-
-    // jQuery for sticky navbar effect
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 0) {
-            $('.navbar').addClass('sticky');
-        } else {
-            $('.navbar').removeClass('sticky');
-        }
-    });
-
-    // Handle card click
-    $('.item').on('click', function() {
-        // Remove 'clicked' class from all items
-        $('.item').removeClass('clicked');
-        $('.item .shop-now').hide(); // Hide 'Shop Now' for all items
-
-        // Add 'clicked' class only to the clicked item
-        $(this).addClass('clicked');
-        $(this).find('.shop-now').show(); // Show 'Shop Now' for clicked item
-    });
-
-    // Hover effect for images
-    $('.item').hover(
-        function () {
-            // On mouse enter, zoom the image
-            $(this).find('img').css({
-                'transform': 'scale(1.2)'
-            });
-        },
-        function () {
-            // On mouse leave, if not clicked, reset the zoom
-            if (!$(this).hasClass('clicked')) {
-                $(this).find('img').css({
-                    'transform': 'scale(1)'
-                });
-            }
-        }
-    );
-   
-   function showCategory(category) {
-     if (category === 'All-products') {
-       $('.clothe > div').show(); // Show all categories
-       $('.shoe > div').show();
-       $('.accessorie > div').show();
-       $('.belt > div').show();
-       $('.watch > div').show();
-     } else if(category === 'Clothes') {
-       $('.clothe > div').show(); // Show all categories
-       $('.accessorie > div').hide();
-       $('.belt > div').hide();
-       $('.shoe > div').hide();
-       $('.watch > div').hide(); // Hide all categories
-     }else if (category === 'Accessories') {
-       $('.clothe > div').hide();
-       $('.accessorie > div').show();
-       $('.belt > div').hide();
-       $('.shoe > div').hide();
-       $('.watch > div').hide(); // Hide all categories
-     }else if (category === 'Belts') {
-       $('.clothe > div').hide();
-       $('.accessorie > div').hide();
-       $('.belt > div').show();0
-       $('.shoe > div').hide();
-       $('.watch > div').hide();// Hide all categories
-     }else if (category === 'Shoes') {
-       $('.clothe > div').hide();
-       $('.accessorie > div').hide();
-       $('.belt > div').hide();
-       $('.shoe > div').show();
-       $('.watch > div').hide(); // Hide all categories
-     }else if (category === 'Watches') {
-       $('.clothe > div').hide(); // Hide all categories
-       $('.accessorie > div').hide();
-       $('.belt > div').hide();
-       $('.shoe > div').hide();
-       $('.watch > div').show();
-     }else{
-       $('.' + category).show(); // Show the selected category
-     }
-     
-     
-   }
-   
-    // Click event for each link
-            // $('.navbar a').click(function(event) {
-            //     event.preventDefault();  // Prevent default link behavior
-            //     // Determine the category based on the clicked link
-            //     const category = $(this).attr('class').split(' ')[0];
-
-            //     // Show the correct category
-            //     showCategory(category);
-            // });
-
-            // Initially show all products
-            showCategory('All-products');
-            
-            
-            $('form').on('submit', function(e) {  
-   e.preventDefault();  
-   // Handle newsletter subscription  
-  });  
+<script src="jquary/inder.js"></script>
   
-  
-});
-</script>
 </body>
 </html>
             
