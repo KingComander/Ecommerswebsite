@@ -3,9 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- Isotope -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <!-- SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- CSS for layout and styling -->
+    <link rel="stylesheet" href="/CSS/header.css">
+    <link rel="stylesheet" href="/CSS/footer.css">
 </head>
 <body>
-    
+    <!-- header -->
+    <div class="navbar-wrapper"></div>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a class="navbar-brand" href="">
+                    <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
+                </a>
+                <div class="collapse" id="collapse-1">
+                        <a href="index.html">Home</a>
+                        <a target="_blank" href="/product.html">Shop</a>
+                        <a target="_blank" href="/shopingcart.html">Features</a>
+                        <a target="_blank" href="/blog.html">Blog</a>
+                        <a target="_blank" href="/about.html">About</a>
+                        <a href="">Contact</a>
+                </div>
+            </div>
+            <div class="icon">
+                <i class="bx bx-search"></i> <!-- Example icon -->
+                <i class='bx bxs-cart-alt'></i>
+                <i class='bx bx-heart'></i>
+                <div class="user-profile" id="userIcon">
+                    <i class="bx bx-user"></i> <!-- User icon -->
+                    <span id="username">Username</span>
+                </div>
+            </div>
+            <!-- Hamburger menu for smaller screens -->
+            <div class="hamburger-menu" id="hamburger-menu-1">
+                <i class="bx bx-menu"></i>
+            </div>
+        </nav>
+    </div>
+
+
+
+    <!-- footer -->
+    <footer>  
+        <div class="footer-content">  
+         <div class="footer-column">  
+           <h3>CATEGORIES</h3>  
+           <ul>  
+            <li>Women</li>  
+            <li>Men</li>  
+            <li>Shoes</li>  
+            <li>Watches</li>  
+           </ul>  
+         </div>  
+         <div class="footer-column">  
+           <h3>HELP</h3>  
+           <ul>  
+            <li>Track Order</li>  
+            <li>Returns</li>  
+            <li>Shipping</li>  
+            <li>FAQs</li>  
+           </ul>  
+         </div>  
+         <div class="footer-column">  
+           <h3>GET IN TOUCH</h3>  
+           <p>Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879</p>  
+           <div class="social-icons">  
+            <a href="#" class="facebook-icon"><i class='bx bxl-facebook-circle'></i></a>  
+            <a href="#" class="instagram-icon"><i class='bx bxl-instagram-alt' ></i></a>  
+            <a href="#" class="pinterest-icon"><i class='bx bxl-pinterest' ></i></a>  
+           </div>  
+         </div>  
+         <div class="footer-column">  
+           <h3>NEWSLETTER</h3>  
+           <form>  
+            <input type="email" placeholder="email@example.com">  
+            <button type="submit">SUBSCRIBE</button>  
+           </form>  
+         </div>  
+        </div>  
+       </footer>
+
+<!-- jQuery Script -->
+<script src="jquary/inder.js"></script>
 </body>
 </html>
