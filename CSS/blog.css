@@ -1,0 +1,135 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.bg-img1 {
+    background-size: cover;
+    background-position: center;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.p-lr-15 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.p-tb-92 {
+    padding-top: 92px;
+    padding-bottom: 92px;
+}
+
+.ltext-105 {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.ltext-108 {
+    font-size: 1.875rem;
+    color: #333333;
+}
+
+.stext-117 {
+    font-size: 1rem;
+    color: #666666;
+}
+
+.hov-img0 img {
+    width: 100%;
+    height: auto;
+}
+
+.size-123 {
+    width: 123px;
+    height: 123px;
+}
+
+.bg9 {
+    background-color: #333333;
+}
+
+.how-pos5 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stext-101 {
+    font-size: 0.875rem;
+    color: #333333;
+}
+
+.flex-col-c-m {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-w {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-sb-m {
+    justify-content: space-between;
+}
+
+.stext-111 {
+    font-size: 0.875rem;
+    color: #333333;
+}
+
+.bor18 {
+    border-bottom: 1px solid #eeeeee;
+}
+
+.stext-115 {
+    font-size: 0.875rem;
+    color: #666666;
+}
+
+.hov-cl1 {
+    color: #ff5722;
+}
+
+.hov-tag1 {
+    background-color: #eeeeee;
+    border-radius: 3px;
+}
+
+.mtext-112 {
+    font-size: 1.25rem;
+    color: #333333;
+}
+
+.p-t-62 {
+    padding-top: 62px;
+}
+
+.p-b-60 {
+    padding-bottom: 60px;
+}
+
+.p-r-45 {
+    padding-right: 45px;
+}
+
+.p-t-32 {
+    padding-top: 32px;
+}
+
+.m-tb-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
