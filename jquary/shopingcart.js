@@ -4,9 +4,33 @@ $(document).ready(function() {
     // Sample data for cart items, in a real scenario, this would be fetched from the server
     const cartItems = [
         {
-            productImg: 'sample-product.jpg',
+            productImg: 'item-cart-01.jpg',
             productName: 'Sample Product',
             productPrice: 100,
+            quantity: 1
+        },
+        {
+            productImg: 'item-cart-02.jpg',
+            productName: 'Sample Product',
+            productPrice: 200,
+            quantity: 1
+        },
+        {
+            productImg: 'item-cart-03.jpg',
+            productName: 'Sample Product',
+            productPrice: 100,
+            quantity: 1
+        },
+        {
+            productImg: 'item-cart-04.jpg',
+            productName: 'Sample Product',
+            productPrice: 200,
+            quantity: 1
+        },
+        {
+            productImg: 'item-cart-05.jpg',
+            productName: 'Sample Product',
+            productPrice: 200,
             quantity: 1
         },
         // Add more items as needed
@@ -20,7 +44,7 @@ $(document).ready(function() {
                 <tr class="table_row">
                     <td class="column-1">
                         <div class="how-itemcart1">
-                            <img src="image/product/${item.productImg}" alt="IMG">
+                            <img src="png/${item.productImg}" alt="IMG">
                         </div>
                     </td>
                     <td class="column-2 text-truncate p-r-11" style="max-width: 150px;">${item.productName}</td>
