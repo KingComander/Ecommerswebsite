@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+.bg-img1 {
+    background-image: url('/png/bg-01.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 92px 15px;
+    position: relative;
+}
+
+.ltext-105 {
+    font-size: 36px;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.bg0 {
+    background-color: #f8f8f8;
+    padding: 75px 15px 120px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.col-md-7, .col-lg-8, .col-md-5, .col-lg-4 {
+    flex: 1;
+    padding: 15px;
+}
+
+.content {
+    padding-right: 85px;
+    transition: padding-right 0.3s ease;
+}
+
+.content:hover {
+    padding-right: 100px;
+}
+
+.mtext-111 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.stext-113 {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 26px;
+}
+
+.image-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.quote {
+    border-left: 3px solid #ccc;
+    padding-left: 15px;
+    margin-top: 22px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.stext-114 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 11px;
+}
+
+.stext-111 {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .content {
+        padding-right: 20px;
+    }
+
+    .ltext-105 {
+        font-size: 32px;
+    }
+
+    .mtext-111 {
+        font-size: 26px;
+    }
+
+    .stext-113 {
+        font-size: 15px;
+    }
+
+    .quote {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding-right: 15px;
+    }
+
+    .ltext-105 {
+        font-size: 28px;
+    }
+
+    .mtext-111 {
+        font-size: 24px;
+    }
+
+    .stext-113 {
+        font-size: 14px;
+    }
+
+    .quote {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .content {
+        padding-right: 0;
+    }
+
+    .mtext-111 {
+        font-size: 22px;
+    }
+
+    .stext-113 {
+        font-size: 13px;
+    }
+
+    .quote {
+        font-size: 11px;
+    }
+
+    .ltext-105 {
+        font-size: 24px;
+    }
+}
