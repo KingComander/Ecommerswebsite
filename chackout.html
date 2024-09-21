@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <!-- Isotope -->
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+        <!-- SweetAlert -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!-- Icon -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+        <!-- CSS for layout and styling -->
+        <link rel="stylesheet" href="/CSS/header.css">
+        <link rel="stylesheet" href="/CSS/footer.css">
+        <link rel="stylesheet" href="/CSS/chackout.css">
+</head>
+<body>
+  <!-- header -->
+  <div class="navbar-wrapper"></div>
+  <nav class="navbar">
+      <div class="nav-logo">
+          <a class="navbar-brand" href="">
+              <img src="png/logo-no-background.png" alt="Logo" class="custom-logo">
+          </a>
+          <div class="collapse" id="collapse-1">
+                  <a href="index.html">Home</a>
+                  <a href="">Shop</a>
+                  <a target="_blank" href="/shopingcart.html">Features</a>
+                  <a target="_blank" href="/blog.html">Blog</a>
+                  <a target="_blank" href="/about.html">About</a>
+                  <a target="_blank" href="/contact.html">Contact</a>
+          </div>
+      </div>
+      <div class="icon">
+          <i class="bx bx-search"></i> <!-- Example icon -->
+          <i class='bx bxs-cart-alt'></i>
+          <i class='bx bx-heart'></i>
+          <div class="user-profile" id="userIcon">
+              <i class="bx bx-user"></i> <!-- User icon -->
+              <span id="username">Username</span>
+          </div>
+      </div>
+      <!-- Hamburger menu for smaller screens -->
+      <div class="hamburger-menu" id="hamburger-menu-1">
+          <i class="bx bx-menu"></i>
+      </div>
+  </nav>
+</div>
+
+    <div class="container">
+        <div class="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
+            <div class="px-4 pt-8">
+                <p class="text-xl font-medium">Order Summary</p>
+                <p class="text-gray-400">Check your items. And select a suitable shipping method.</p>
+                <div class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
+                    <div class="flex flex-col rounded-lg bg-white sm:flex-row">
+                        <img class="m-2 h-24 w-28 rounded-md border object-cover object-center" src="https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?auto=format&fit=crop&w=500&q=60" alt="" />
+                        <div class="flex w-full flex-col px-4 py-4">
+                            <span class="font-semibold">Nike Air Max Pro 8888 - Super Light</span>
+                            <span class="float-right text-gray-400">42EU - 8.5US</span>
+                            <p class="text-lg font-bold">$138.99</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col rounded-lg bg-white sm:flex-row">
+                        <img class="m-2 h-24 w-28 rounded-md border object-cover object-center" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=500&q=60" alt="" />
+                        <div class="flex w-full flex-col px-4 py-4">
+                            <span class="font-semibold">Nike Air Max Pro 8888 - Super Light</span>
+                            <span class="float-right text-gray-400">42EU - 8.5US</span>
+                            <p class="mt-auto text-lg font-bold">$238.99</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <p class="mt-8 text-lg font-medium">Shipping Methods</p>
+                <form class="mt-5 grid gap-6">
+                    <div class="relative">
+                        <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
+                        <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+                        <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
+                            <i class='bx bx-truck w-14'></i>
+                            <div class="ml-5">
+                                <span class="mt-2 font-semibold">FedEx Delivery</span>
+                                <p class="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="relative">
+                        <input class="peer hidden" id="radio_2" type="radio" name="radio" />
+                        <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+                        <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
+                            <i class='bx bx-plane w-14'></i>
+                            <div class="ml-5">
+                                <span class="mt-2 font-semibold">Air Delivery</span>
+                                <p class="text-slate-500 text-sm leading-6">Delivery: 1-3 Days</p>
+                            </div>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
+                <p class="text-xl font-medium">Payment Details</p>
+                <p class="text-gray-400">Complete your order by providing your payment details.</p>
+                <div class="">
+                    <label for="email" class="mt-4 mb-2 block text-sm font-medium">Email</label>
+                    <div class="relative">
+                        <input type="text" id="email" name="email" class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" />
+                        <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                            <i class='bx bx-envelope text-gray-400'></i>
+                        </div>
+                    </div>
+                    <label for="card-holder" class="mt-4 mb-2 block text-sm font-medium">Card Holder</label>
+                    <div class="relative">
+                        <input type="text" id="card-holder" name="card-holder" class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Your full name here" />
+                        <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                            <i class='bx bx-user text-gray-400'></i>
+                        </div>
+                    </div>
+                    <label for="card-no" class="mt-4 mb-2 block text-sm font-medium">Card Details</label>
+                    <div class="flex">
+                        <div class="relative w-7/12 flex-shrink-0">
+                            <input type="text" id="card-no" name="card-no" class="w-full rounded-md border border-gray-200 px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="xxxx-xxxx-xxxx-xxxx" />
+                            <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                                <i class='bx bx-credit-card text-gray-400'></i>
+                            </div>
+                        </div>
+                        <input type="text" name="credit-expiry" class="w-full rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="MM/YY" />
+                        <input type="text" name="credit-cvc" class="w-1/6 flex-shrink-0 rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="CVC" />
+                    </div>
+                    <label for="billing-address" class="mt-4 mb-2 block text-sm font-medium">Billing Address</label>
+                    <div class="flex flex-col sm:flex-row">
+                        <div class="relative flex-shrink-0 sm:w-7/12">
+                            <input type="text" id="billing-address" name="billing-address" class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Street Address" />
+                            <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                                <i class='bx bx-home text-gray-400'></i>
+                            </div>
+                        </div>
+                        <select name="billing-state" class="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500">
+                            <option value="">State</option>
+                        </select>
+                        <input type="text" name="billing-zip" class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="ZIP" />
+                    </div>
+    
+                    <!-- Total -->
+                    <div class="mt-6 border-t border-b py-2">
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-medium text-gray-900">Subtotal</p>
+                            <p class="font-semibold text-gray-900">$399.00</p>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-medium text-gray-900">Shipping</p>
+                            <p class="font-semibold text-gray-900">$8.00</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between">
+                        <p class="text-sm font-medium text-gray-900">Total</p>
+                        <p class="text-2xl font-semibold text-gray-900">$408.00</p>
+                    </div>
+                </div>
+                <button class="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+        <!-- footer -->
+        <footer>  
+            <div class="footer-content">  
+             <div class="footer-column">  
+               <h3>CATEGORIES</h3>  
+               <ul>  
+                <li>Women</li>  
+                <li>Men</li>  
+                <li>Shoes</li>  
+                <li>Watches</li>  
+               </ul>  
+             </div>  
+             <div class="footer-column">  
+               <h3>HELP</h3>  
+               <ul>  
+                <li>Track Order</li>  
+                <li>Returns</li>  
+                <li>Shipping</li>  
+                <li>FAQs</li>  
+               </ul>  
+             </div>  
+             <div class="footer-column">  
+               <h3>GET IN TOUCH</h3>  
+               <p>Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879</p>  
+               <div class="social-icons">  
+                <a href="#" class="facebook-icon"><i class='bx bxl-facebook-circle'></i></a>  
+                <a href="#" class="instagram-icon"><i class='bx bxl-instagram-alt' ></i></a>  
+                <a href="#" class="pinterest-icon"><i class='bx bxl-pinterest' ></i></a>  
+               </div>  
+             </div>  
+             <div class="footer-column">  
+               <h3>NEWSLETTER</h3>  
+               <form>  
+                <input type="email" placeholder="email@example.com">  
+                <button type="submit">SUBSCRIBE</button>  
+               </form>  
+             </div>  
+            </div>  
+           </footer>
+    
+        <!-- jQuery Script -->
+        <script src="jquary/inder.js"></script>
+</body>
+</html>
