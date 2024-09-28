@@ -210,29 +210,76 @@ body {
     color: #007bff;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Responsive styles */
+@media (max-width: 1200px) { /* Large Monitors */
+    .container {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 992px) { /* Laptops */
     .col-md-8, .col-md-4 {
-        flex: 0 0 100%;
-        max-width: 100%;
+        padding: 0 10px;
     }
 
-    .p-r-45 {
-        padding-right: 0;
+    .col-md-8 {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+
+    .col-md-4 {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets */
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-8, .col-md-4 {
+        max-width: 100%;
+        flex: 0 0 100%;
+        padding: 0 15px;
+    }
+
+    .ltext-105 {
+        font-size: 28px;
     }
 
     .mtext-112 {
         font-size: 18px;
     }
 
-    .ltext-105 {
-        font-size: 28px;
+    .stext-115 {
+        font-size: 14px;
     }
 }
 
-@media (min-width: 769px) and (max-width: 1200px) {
-    .col-md-8, .col-md-4 {
-        flex: 0 0 50%;
-        max-width: 50%;
+@media (max-width: 576px) { /* Mobile */
+    .ltext-105 {
+        font-size: 24px;
+    }
+
+    .mtext-112 {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .hov-img0 img {
+        transition: transform 0.2s, filter 0.2s;
+    }
+
+    .side-menu {
+        padding: 20px;
+    }
+
+    .bor17 input {
+        padding: 8px;
+    }
+
+    .bor17 button {
+        width: 45px;
     }
 }
