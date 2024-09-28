@@ -1,3 +1,4 @@
+/* Base styles */
 * {
     margin: 0;
     padding: 0;
@@ -150,7 +151,13 @@ button:hover {
 }
 
 /* Responsive styles */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) { /* Large Monitors */
+    .container {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1024px) { /* Laptops */
     .size-210 {
         max-width: 100%;
     }
@@ -168,7 +175,7 @@ button:hover {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* Tablets */
     .flex-tr {
         flex-direction: column;
     }
@@ -186,7 +193,7 @@ button:hover {
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) { /* Mobile */
     .ltext-105 {
         font-size: 24px;
     }
