@@ -6,6 +6,7 @@
     <title>KING STORE</title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <!-- Isotope -->
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
@@ -14,53 +15,146 @@
     <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+
     <link rel="stylesheet" href="/CSS/header.css">
     <link rel="stylesheet" href="/CSS/footer.css">
     <link rel="stylesheet" href="/CSS/product.css">
     <style>
-        #Home {
-            width: 100%;
-            height: 100vh;
-            background: url("png/slide-02.jpg") no-repeat center center;
-            background-size: cover;
-        }
 
-        .shopnow{
-          position: absolute;
-          top: 130%;
-          left: -5%;
-          transform: translate(40%, -50%);
-        }
+      /* home */
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background for contrast */
+}
 
-        .left {
-            position: absolute;
-            top: 50%;
-            left: -5%;
-            transform: translate(40%, -50%);
-        }
+.container {
+    max-width: 1200px; /* Max width for content */
+    margin: 0 auto;
+}
 
-        .slide {
-            display: inline-block; /* Ensure that animation works smoothly */
-            animation: slideIn 2s ease-out; /* Adjust duration and easing as needed */
-            color: black; /* Start with a lighter color */
-            font-family: 'Cooper', serif; /* Apply the Cooper font */
-            font-size: 60px;
-            transition: color 2s ease-out; /* Smooth color transition */
-        }
+/* Slider Styles */
+.section-slide {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+}
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(50%); /* Start from right outside */
-                opacity: 0; /* Start with hidden text */
-                color: #ccc; /* Start with a lighter color */
-            }
-            to {
-                transform: translateX(0); /* End at the final position */
-                opacity: 1; /* End with visible text */
-                color: black; /* End with a darker color */
-            }
-        }
+.wrap-slick1 {
+    width: 100%;
+    height: 100%;
+}
 
+.slick1 .item-slick1 {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Allow absolute positioning of layers */
+}
+
+.layer-slick1 {
+    position: absolute;
+    color: white;
+    text-align: center;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.ltext-101 {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+}
+
+.ltext-201 {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 20px 0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.stext-101 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+/* Button Styles */
+.bg1 {
+    background-color: #ff6f61; /* Button background color */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.hov-btn1 {
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.hov-btn1:hover {
+    background-color: #ff4c3b; /* Button hover color */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.bor1 {
+    border: 1px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.bor1:hover {
+    border-color: #ff4c3b; /* Button border hover color */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .ltext-201 {
+        font-size: 36px; /* Smaller font size on mobile */
+    }
+
+    .ltext-101 {
+        font-size: 20px; /* Smaller font size on mobile */
+    }
+
+    .stext-101 {
+        font-size: 14px; /* Smaller font size on mobile */
+    }
+}
+
+/* Animation styles */
+.animated {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.visible-false {
+    opacity: 0;
+}
+
+.visible-true {
+    opacity: 1;
+}
+
+/* Slick dots customization */
+.slick-dots {
+    bottom: 20px; /* Positioning the dots */
+}
+
+.slick-dots li button:before {
+    font-size: 12px; /* Size of the dots */
+    color: white; /* Dot color */
+    opacity: 0.5; /* Dot opacity */
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1; /* Active dot opacity */
+}
+
+
+      /* persons */
         /* Base styles for all devices */
         #persons {
             display: flex;
@@ -171,35 +265,16 @@
 
         /* Medium screens (tablets) */
         @media (min-width: 768px) and (max-width: 1199px) {
-            /* home */
-
-            .slide{
-                font-size: 40px;
-            }
+          
         }
 
         /* Small screens (phones) */
         @media (max-width: 767px) {
 
-            /* home */
-            .left h2{
-                font-size: 20px;
-            }
-             
-            .slide{
-                font-size: 30px;
-            }
         }
 
         @media (max-width: 512px) {
-            /* home */
-            .left h2{
-                font-size: 10px;
-            }
-             
-            .slide{
-                font-size: 17px;
-            }
+            
         }
     </style>
 </head>
@@ -235,13 +310,60 @@
         </nav>
     </div>
 
-    <section id="Home">
-        <div class="left">
-            <h2>Men New-Season</h2>
-            <h1 class="slide">JACKETS & COATS</h1>
-            <button class="shopnow">shop now</button>
-        </div>
-    </section>
+    <!-- Slider -->
+    <section class="section-slide">
+      <div class="wrap-slick1">
+          <div class="slick1">
+              <div class="item-slick1" style="background-image: url('png/slide-01.jpg');">
+                  <div class="container h-full">
+                      <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                          <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+                              <span class="ltext-101 cl2 respon2">Women Collection 2018</span>
+                          </div>
+                          <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
+                              <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">NEW SEASON</h2>
+                          </div>
+                          <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+                              <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">Shop Now</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="item-slick1" style="background-image: url('png/slide-02.jpg');">
+                  <div class="container h-full">
+                      <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                          <div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
+                              <span class="ltext-101 cl2 respon2">Men New-Season</span>
+                          </div>
+                          <div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
+                              <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">Jackets & Coats</h2>
+                          </div>
+                          <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
+                              <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">Shop Now</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="item-slick1" style="background-image: url('png/slide-03.jpg');">
+                  <div class="container h-full">
+                      <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                          <div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
+                              <span class="ltext-101 cl2 respon2">Men Collection 2018</span>
+                          </div>
+                          <div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
+                              <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">New arrivals</h2>
+                          </div>
+                          <div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
+                              <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">Shop Now</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
     
     <section id="persons">
         <div class="item women">
