@@ -164,23 +164,6 @@ $(document).ready(function() {
                 return false; // prevent form submission
             });
 
-            // home
-            $('.slick1').slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                fade: true,
-                cssEase: 'linear',
-                autoplay: true,
-                autoplaySpeed: 4000
-            });
-        
-            // Animation visibility
-            $('.layer-slick1').each(function(index) {
-                var $this = $(this);
-                setTimeout(function() {
-                    $this.removeClass('visible-false').addClass('visible-true');
-                }, index * 800); // Stagger animations
-            });
-  
+            
+            
 });

@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KING STORE</title>
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Isotope -->
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
@@ -22,136 +21,119 @@
     <link rel="stylesheet" href="/CSS/product.css">
     <style>
 
-      /* home */
-/* General Styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Light background for contrast */
-}
-
-.container {
-    max-width: 1200px; /* Max width for content */
-    margin: 0 auto;
-}
-
-/* Slider Styles */
-.section-slide {
+    /* home */
+#home {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
 }
 
-.wrap-slick1 {
+.simple-slider {
+    position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    transition: transform 0.5s ease; /* Transition for sliding effect */
 }
 
-.slick1 .item-slick1 {
+.slide {
+    flex: 0 0 100%; /* Each slide takes full width */
+    height: 100%;
     background-size: cover;
     background-position: center;
-    height: 100%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* Allow absolute positioning of layers */
 }
 
-.layer-slick1 {
-    position: absolute;
+.container {
+    z-index: 10;
     color: white;
     text-align: center;
-    width: 100%;
-    transition: transform 0.5s ease;
+    position: relative;
+    right: 400px;
 }
 
 .ltext-101 {
-    font-size: 24px;
+    position: relative;
+    right: 0;
+    opacity: 1;
+    animation: animate 2s ;
+    font-size: 30px;
     font-weight: bold;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+    margin-bottom: 20px;
+    color: black;
 }
 
 .ltext-201 {
-    font-size: 48px;
-    font-weight: 600;
-    margin: 20px 0;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-}
-
-.stext-101 {
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 10px;
-}
-
-/* Button Styles */
-.bg1 {
-    background-color: #ff6f61; /* Button background color */
-    border-radius: 5px; /* Rounded corners */
-}
-
-.hov-btn1 {
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-}
-
-.hov-btn1:hover {
-    background-color: #ff4c3b; /* Button hover color */
-    transform: scale(1.05); /* Slight scale effect on hover */
-}
-
-.bor1 {
-    border: 1px solid transparent;
-    transition: border-color 0.3s;
-}
-
-.bor1:hover {
-    border-color: #ff4c3b; /* Button border hover color */
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .ltext-201 {
-        font-size: 36px; /* Smaller font size on mobile */
-    }
-
-    .ltext-101 {
-        font-size: 20px; /* Smaller font size on mobile */
-    }
-
-    .stext-101 {
-        font-size: 14px; /* Smaller font size on mobile */
-    }
-}
-
-/* Animation styles */
-.animated {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.visible-false {
-    opacity: 0;
-}
-
-.visible-true {
+    position: relative;
+    right: 0;
     opacity: 1;
+    animation: animate2 2s linear;
+    font-size: 80px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 30px;
+    color: black;
+}
+@keyframes animate{
+    0%{
+        position: relative;
+        right: 200px;
+        opacity: 0;
+    }
+    100%{
+        position: relative;
+        right: 0;
+        opacity: 1;
+    }
+}
+@keyframes animate2{
+    0%{
+        left: 26rem;
+        opacity: 0.5;
+    }
+    100%{
+        left: 0;
+        opacity: 1;
+    }
 }
 
-/* Slick dots customization */
-.slick-dots {
-    bottom: 20px; /* Positioning the dots */
+.btn-shop {
+    padding: 15px 30px;
+    background-color: rgba(255, 0, 0, 0.7);
+    border-radius: 50px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    animation: btn 2s linear;
+}
+@keyframes btn{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 
-.slick-dots li button:before {
-    font-size: 12px; /* Size of the dots */
-    color: white; /* Dot color */
-    opacity: 0.5; /* Dot opacity */
+.btn-shop:hover {
+    background-color: rgba(255, 0, 0, 1);
 }
 
-.slick-dots li.slick-active button:before {
-    opacity: 1; /* Active dot opacity */
+/* Simple Animation for Slides */
+@keyframes slideAnimation {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
+
+/* Add media queries as needed */
+
 
 
       /* persons */
@@ -310,61 +292,36 @@ body {
         </nav>
     </div>
 
-    <!-- Slider -->
-    <section class="section-slide">
-      <div class="wrap-slick1">
-          <div class="slick1">
-              <div class="item-slick1" style="background-image: url('png/slide-01.jpg');">
-                  <div class="container h-full">
-                      <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                          <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                              <span class="ltext-101 cl2 respon2">Women Collection 2018</span>
-                          </div>
-                          <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-                              <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">NEW SEASON</h2>
-                          </div>
-                          <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                              <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">Shop Now</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+   <!-- Slider -->
+   <section id="home">
+    <div class="simple-slider">
+        <div class="slide" style="background-image: url('png/slide-01.jpg');">
+            <div class="container">
+                <span class="ltext-101">Women Collection 2018</span>
+                <h2 class="ltext-201">NEW SEASON</h2>
+                <a href="product.html" class="btn-shop">Shop Now</a>
+            </div>
+        </div>
 
-              <div class="item-slick1" style="background-image: url('png/slide-02.jpg');">
-                  <div class="container h-full">
-                      <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                          <div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
-                              <span class="ltext-101 cl2 respon2">Men New-Season</span>
-                          </div>
-                          <div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
-                              <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">Jackets & Coats</h2>
-                          </div>
-                          <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
-                              <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">Shop Now</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+        <div class="slide" style="background-image: url('png/slide-02.jpg');">
+            <div class="container">
+                <span class="ltext-101">Men New-Season</span>
+                <h2 class="ltext-201">Jackets & Coats</h2>
+                <a href="product.html" class="btn-shop">Shop Now</a>
+            </div>
+        </div>
 
-              <div class="item-slick1" style="background-image: url('png/slide-03.jpg');">
-                  <div class="container h-full">
-                      <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                          <div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
-                              <span class="ltext-101 cl2 respon2">Men Collection 2018</span>
-                          </div>
-                          <div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
-                              <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">New arrivals</h2>
-                          </div>
-                          <div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
-                              <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">Shop Now</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-    
+        <div class="slide" style="background-image: url('png/slide-03.jpg');">
+            <div class="container">
+                <span class="ltext-101">Men Collection 2018</span>
+                <h2 class="ltext-201">New arrivals</h2>
+                <a href="product.html" class="btn-shop">Shop Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     <section id="persons">
         <div class="item women">
             <img src="png/banner-01.jpg" alt="Women's banner">
@@ -496,6 +453,32 @@ body {
 
   <!-- SCRIPT -->
 <script src="jquary/inder.js"></script>
+
+
+    <script>
+        // SweetAlert example
+        $(document).on('click', '.shop-now', function(e) {
+            e.preventDefault();
+            swal("Welcome!", "Thank you for visiting our store!", "success");
+        });
+
+        $(document).ready(function() {
+            let currentIndex = 0;
+            const slides = $('.slide');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+        currentIndex = (index + totalSlides) % totalSlides; // Loop around
+        $('.simple-slider').css('transform', `translateX(-${currentIndex * 100}%)`);
+            }
+
+            // Automatic sliding
+            setInterval(function() {
+                showSlide(currentIndex + 1);
+            }, 5000); // Change slide every 5 seconds
+        });
+
+    </script>
   
 </body>
 </html>
