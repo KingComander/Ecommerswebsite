@@ -115,12 +115,14 @@ body {
 }
 
 .login_with_google {
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 10px 0;
-    color: #db4437;
-    cursor: pointer;
-    font-size: 14px;
+}
+
+#g_id_onload, #g_id_signin {
+    margin: auto;
 }
 
 .register_container {
@@ -169,13 +171,24 @@ body {
         <div class="checkbox_container">
             <input type="checkbox" class="checkbox" id="remember_me">
             <label for="remember_me" class="checkbox_label">Remember Me</label>
-            <span class="forgot_password"><a href="forgot_password_url">Forgot Password?</a></span>
+            <span class="forgot_password"><a href="forgot_password.html">Forgot Password?</a></span>
         </div>
         <button type="submit" class="btn">Login</button>
         <div class="separator">
             <hr class="line"><span class="or">or</span><hr class="line">
         </div>
-        <span class="login_with_google">Log in with Google</span>
+        <span class="login_with_google">Log in with Google</span    >
+        <div class="login_with_google">
+            <!-- Google Sign-In Button -->
+            <div id="g_id_onload"
+                 data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                 data-context="signin"
+                 data-ux_mode="popup"
+                 data-callback="handleCredentialResponse"
+                 data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="standard"></div>
+        </div>
         <div class="register_container">
             <span class="register">Don't have an account?</span>
             <span class="register"><a href="signup_url">Create an account</a></span>
@@ -187,7 +200,19 @@ body {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Google Sign-In script -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
     <script>
+        // Handle the Google login response
+        function handleCredentialResponse(response) {
+            console.log("Encoded JWT ID token: " + response.credential);
+            // Here you can send the token to your backend to validate the user
+            // You can also store the token and proceed with your app flow
+            $('#message').html('<div class="alert alert-success">Logged in with Google successfully!</div>');
+        }
+
         $(document).ready(function() {
             $('#loginForm').on('submit', function(event) {
                 event.preventDefault(); // Prevent default form submission
