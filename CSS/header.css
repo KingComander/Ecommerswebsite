@@ -67,7 +67,6 @@
 img.custom-logo {
     height: 80px;
     width: 180px;
-    filter: drop-shadow(0 0 1px black);
 }
 
 /* Icon container */

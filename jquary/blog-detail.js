@@ -1,14 +1,17 @@
-$(document).ready(function() {
-    // Example jQuery code to handle tags click
-    $('.hov-tag1').on('click', function(e) {
-        e.preventDefault();
-        // Toggle active class or perform any other action
-        $(this).toggleClass('active-tag');
-    });
+ $(document).ready(function() {
+            // Add a smooth scroll effect for anchors
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
+            });
 
-    // Example jQuery code for smooth scroll to top
-    $('.scroll-to-top').on('click', function(e) {
-        e.preventDefault();
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
-    });
-});
+            // Toggle the search bar visibility
+            $('.bx-search').on('click', function() {
+                $('.bor19').toggleClass('active');
+            });
+        });
