@@ -8,8 +8,6 @@
             color: #333;
         }
 
-        
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -95,6 +93,10 @@
 
         button:hover {
             background-color: #0056b3;
+        }
+
+        .black li a{
+            color: #000;
         }
 
         /* Media Queries */
