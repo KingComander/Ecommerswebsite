@@ -154,3 +154,132 @@ img.custom-logo {
         display: none; /* Hide on small screens */
     }
 }
+
+/* Icon header item styling */
+.icon-header-item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+/* Hover effect */
+.icon-header-item:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+/* Notification badge styling */
+.icon-header-noti {
+    position: relative;
+}
+
+/* Badge appearance when there's a notification */
+.icon-header-noti[data-notify]:after {
+    content: attr(data-notify);
+    position: absolute;
+    top: -5px; /* Positioning the badge */
+    right: -10px; /* Positioning the badge */
+    background: red; /* Badge background color */
+    color: white; /* Badge text color */
+    border-radius: 50%; /* Circular badge */
+    padding: 3px 6px; /* Padding for badge */
+    font-size: 12px; /* Font size for badge */
+    display: inline-block; /* Ensure the badge displays correctly */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+
+
+/* General Styles for the Wishlist Icon */
+.icon-header-item {
+    position: relative; /* Allows positioning of the notification count */
+    display: inline-block; /* Make sure it's inline with other elements */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+
+/* Styles for the wishlist icon */
+.icon-header-item .bx {
+    font-size: 24px; /* Size of the icon */
+    color: #333; /* Default icon color */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+/* Hover Effect for the Wishlist Icon */
+.icon-header-item:hover .bx {
+    color: #e91e63; /* Color on hover */
+}
+
+/* Notification Count Styles */
+.notification-count {
+    background-color: red; /* Background color for the notification */
+    color: white; /* Text color for the notification */
+    border-radius: 50%; /* Makes it a circle */
+    padding: 2px 5px; /* Padding for the count */
+    position: absolute; /* Position it relative to the icon */
+    top: -5px; /* Adjust based on your layout */
+    right: -5px; /* Adjust based on your layout */
+    font-size: 12px; /* Font size of the notification count */
+    display: none; /* Hidden by default */
+    min-width: 20px; /* Minimum width to keep it circular */
+    text-align: center; /* Center the text */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .icon-header-item .bx {
+        font-size: 20px; /* Smaller icon size on mobile */
+    }
+    
+    .notification-count {
+        font-size: 10px; /* Smaller font size for mobile */
+        min-width: 18px; /* Adjust minimum width */
+    }
+}
+
+
+/* General styles for the icon header item */
+.icon-header-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Set width for the icon container */
+    height: 40px; /* Set height for the icon container */
+    background-color: transparent; /* Background color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+}
+
+/* Padding styles */
+.p-l-22 {
+    padding-left: 22px;
+}
+
+.p-r-11 {
+    padding-right: 11px;
+}
+
+/* Hover effect styles */
+.icon-header-item:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Change background on hover */
+    transform: scale(1.05); /* Slightly scale the icon */
+}
+
+/* Icon styles */
+.bx {
+    font-size: 24px; /* Icon size */
+    color: #333; /* Icon color */
+    transition: color 0.3s; /* Transition for color change */
+}
+
+/* Change color on hover */
+.icon-header-item:hover .bx {
+    color: #007bff; /* Change icon color on hover */
+}
+
+/* Additional utility classes for hover effect */
+.hov-cl1:hover {
+    color: #007bff; /* Change text color on hover */
+}
+

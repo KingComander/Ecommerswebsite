@@ -1,4 +1,35 @@
 $(document).ready(function() {
+// Fetch wishlist count from the API
+$.ajax({
+    url: '/api/wishlist', // Your API endpoint that returns wishlist data
+    method: 'GET',
+    dataType: 'json',
+    success: function(response) {
+        if (response.count > 0) {
+            $('#wishlist-notification').text(response.count).show();
+        } else {
+            $('#wishlist-notification').hide();
+        }
+    },
+    error: function() {
+        console.error("Error fetching wishlist.");
+    }
+});
+
+     // Simulated data for cart
+     const cartUser = "usercart"; // Simulated user cart
+     const cartExists = true; // Simulated check for the cart table existence
+     let cartCount = 5; // Simulated cart item count
+
+     if (cartExists) {
+         // If cart exists, update the notify attribute
+         $('.icon-header-noti').attr('data-notify', cartCount);
+     } else {
+         // If cart doesn't exist, remove notify attribute
+         $('.icon-header-noti').removeAttr('data-notify');
+     }
+
+     
     // Check if user is logged in
     var username = localStorage.getItem('username');
     if (username) {
