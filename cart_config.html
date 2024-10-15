@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <script>
+        function addToCart() {
+            const cartData = document.getElementById('cartName').value;
+            const productId = document.getElementById('productId').value;
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "wishlist.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function () {
+                document.getElementById('response').innerText = this.responseText;
+            };
+            xhr.send("cart=" + cartData + "&cart_product=" + productId);
+        }
+    </script>
+    <link rel="stylesheet" href="CSS\cart_config.css">
+</head>
+<body>
+    <h1>Add Product to Cart</h1>
+    <form onsubmit="event.preventDefault(); addToCart();">
+        <label for="cartName">Cart Name:</label>
+        <input type="text" id="cartName" name="cartName" required><br><br>
+        
+        <label for="productId">Product ID:</label>
+        <input type="number" id="productId" name="productId" required><br><br>
+        
+        <button type="submit">Add to Cart</button>
+    </form>
+
+    <div id="response"></div>
+</body>
+</html>
