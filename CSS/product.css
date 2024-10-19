@@ -1,122 +1,162 @@
-/*product*/
-        #product{
-          height: 100vh;
-          width:100%;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center;
-        }
-        
-        
-        /* cards*/
-        :root {
-            --card-width: calc(var(--card-height) / 1.5);
-            --card-height: 300px;
-        }
-        * {
-          box-sizing: border-box;
-        }
+/* Product Layout */
+#product {
+  height: auto; /* Adjusted to allow for flexibility */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Added padding for spacing */
+}
 
-        .card {
-          width: var(--card-width);
-          height: var(--card-height);
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          padding: 0 36px;
-          perspective: 2500px;
-          margin: 0 50px;
-        }
+/* Card Styles */
+:root {
+  --card-width: calc(var(--card-height) / 1.5);
+  --card-height: 300px;
+}
 
+* {
+  box-sizing: border-box;
+}
 
-        .cover-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 20px; /* Reduced margin for a cleaner look */
+  transition: transform 0.3s; /* Added transition for scaling */
+}
 
-        .wrapper {
-          transition: all 0.5s;
-          position: absolute;
-          width: 100%;
-          z-index: -1;
-        }
+.card:hover {
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
 
-        .card:hover .wrapper {
-          transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
-          box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-          -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-          -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-        }
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-        .wrapper::before,
-        .wrapper::after {
-          content: "";
-          opacity: 0;
-          width: 100%;
-          height: 80px;
-          transition: all 0.5s;
-          position: absolute;
-          left: 0;
-        }
-        .wrapper::before {
-          top: 0;
-          height: 100%;
-          background-image: linear-gradient(
-            to top,
-            transparent 46%,
-            rgba(12, 13, 19, 0.5) 68%,
-            rgba(12, 13, 19) 97%
-          );
-        }
-        .wrapper::after {
-          bottom: 0;
-          opacity: 1;
-          background-image: linear-gradient(
-            to bottom,
-            transparent 46%,
-            rgba(12, 13, 19, 0.5) 68%,
-            rgba(12, 13, 19) 97%
-          );
-        }
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
 
-        .card:hover .wrapper::before,
-        .wrapper::after {
-          opacity: 1;
-        }
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
 
-        .card:hover .wrapper::after {
-          height: 120px;
-        }
-        .title {
-          width: 100%;
-          transition: transform 0.5s;
-          color: white;
-          
-        }
-        .card:hover .title {
-          transform: translate3d(0%, -50px, 100px);
-        }
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
 
-        .character {
-          height:  300px;
-          width: 320px;;
-          opacity: 0;
-          transition: all 0.5s;
-          position: absolute;
-          z-index: -1;
-        }
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+      to top,
+      transparent 46%,
+      rgba(12, 13, 19, 0.5) 68%,
+      rgba(12, 13, 19) 97%
+  );
+}
 
-        .card:hover .character {
-          opacity: 1;
-          transform: translate3d(0%, -10%, 100px);
-        }
-        .clothes, .accessorie, .belts ,.shoes, .watches{
-          display: none;
-        }
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+      to bottom,
+      transparent 46%,
+      rgba(12, 13, 19, 0.5) 68%,
+      rgba(12, 13, 19) 97%
+  );
+}
 
-        .product, .clothe{
-          display: flex;
-        }
+.card:hover .wrapper::before,
+.card:hover .wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 120px;
+}
+
+.title {
+  width: 100%;
+  transition: transform 0.5s;
+  color: white;
+  font-size: 18px; /* Set a font size for the title */
+}
+
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+/* Price Styles */
+.price {
+  width: 100%;
+  font-size: 16px; /* Set a font size for the price */
+  color: #FFD700; /* Gold color for the price */
+  text-align: center; /* Center the price */
+  margin-top: 10px; /* Spacing above the price */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.card:hover .price {
+  color: #FF4500; /* Change color on hover */
+}
+
+.character {
+  height: 300px;
+  width: 320px;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -10%, 100px);
+}
+
+/* Hide unnecessary classes for future use */
+.clothes, .accessory, .belts, .shoes, .watches {
+  display: none;
+}
+
+.product, .clothe {
+  display: flex;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  #product {
+      flex-direction: column; /* Stack items vertically */
+  }
+  .card {
+      width: 90%;
+      margin: 10px 0; /* Adjusted margin for mobile */
+  }
+  .title {
+      font-size: 16px; /* Smaller title font on mobile */
+  }
+  .price {
+      font-size: 14px; /* Smaller price font on mobile */
+  }
+}
