@@ -57,6 +57,13 @@
     color: black;
 }
 
+.collapse button {
+  border: none;
+  color: #000;
+  background: none;
+  text-decoration: none;
+}
+
 /* Responsive menu toggle */
 .hamburger-menu {
     display: none;
