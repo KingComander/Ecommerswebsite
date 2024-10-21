@@ -143,11 +143,6 @@
   transition: all 0.7s ease-in-out;
 }
 
-/* Hide unnecessary classes for future use */
-.clothes, .accessory, .belts, .shoes, .watches {
-  display: none;
-}
-
 .product, .clothe {
   display: flex;
 }
