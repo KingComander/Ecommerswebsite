@@ -5,207 +5,302 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Product Page</title>  
   <style>
-    .product-page {  
-  max-width: 1200px;  
-  margin: 40px auto;  
-  display: flex;  
-  flex-wrap: wrap;  
-  justify-content: space-between;  
-}  
-  
-.product-image {  
-  width: 50%;  
-  margin-right: 20px;  
-}  
-  
-.product-image img {  
-  width: 100%;  
-  height: 400px;  
-  object-fit: cover;  
-  border-radius: 10px;  
-}  
-  
-.thumbnails {  
-  display: flex;  
-  flex-wrap: wrap;  
-  justify-content: space-between;  
-  margin-top: 20px;  
-}  
-  
-.thumbnails img {  
-  width: 25%;  
-  height: 100px;  
-  object-fit: cover;  
-  border-radius: 10px;  
-  margin: 10px;  
-}  
-  
-.product-info {  
-  width: 50%;  
-  margin-left: 20px;  
-}  
-  
-.product-info h2 {  
-  font-size: 24px;  
-  margin-bottom: 10px;  
-}  
-  
-.product-info p {  
-  font-size: 18px;  
-  margin-bottom: 20px;  
-}  
-  
-.size-selector {  
-  display: flex;  
-  flex-wrap: wrap;  
-  justify-content: space-between;  
-  margin-bottom: 20px;  
-}  
-  
-.size-btn {  
-  width: 30px;  
-  height: 30px;  
-  border: none;  
-  border-radius: 50%;  
-  background-color: #fff;  
-  cursor: pointer;  
-  margin: 10px;  
-}  
-  
-.size-btn:hover {  
-  background-color: #ccc;  
-}  
-  
-.size-btn.selected {  
-  background-color: #333;  
-  color: #fff;  
-}  
-  
-.wishlist-btn, .add-to-cart-btn {  
-  width: 100%;  
-  height: 40px;  
-  border: none;  
-  border-radius: 10px;  
-  background-color: #333;  
-  color: #fff;  
-  cursor: pointer;  
-  margin-bottom: 20px;  
-}  
-  
-.wishlist-btn:hover, .add-to-cart-btn:hover {  
-  background-color: #444;  
-}  
-  
-.similar-products {  
-  width: 100%;  
-  margin-top: 40px;  
-}  
-  
-.similar-product {  
-  display: inline-block;  
-  width: 25%;  
-  margin: 20px;  
-}  
-  
-.similar-product img {  
-  width: 100%;  
-  height: 150px;  
-  object-fit: cover;  
-  border-radius: 10px;  
-}  
-  
-.similar-product p {  
-  font-size: 18px;  
-  margin-bottom: 10px;  
-}
+    /* General styling for large screens (monitor) */
+    .product-page {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 
+    .product-image {
+      width: 50%;
+      margin-right: 20px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .thumbnails img {
+      width: 25%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    .product-info {
+      width: 45%;
+      margin-left: 20px;
+    }
+
+    .product-info h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .product-info p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .size-selector {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .size-btn {
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 50%;
+      background-color: #fff;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .size-btn:hover {
+      background-color: #ccc;
+    }
+
+    .size-btn.selected {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .wishlist-btn,
+    .add-to-cart-btn {
+      width: 100%;
+      height: 40px;
+      border: none;
+      border-radius: 10px;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .wishlist-btn:hover,
+    .add-to-cart-btn:hover {
+      background-color: #444;
+    }
+
+    .similar-products {
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    .similar-product {
+      display: inline-block;
+      width: 25%;
+      margin: 20px;
+    }
+
+    .similar-product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .similar-product p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Media Queries */
+
+    /* Large Monitors (1200px and above) */
+    @media (min-width: 1200px) {
+      .product-image, .product-info {
+        width: 45%;
+      }
+
+      .similar-product {
+        width: 23%;
+      }
+    }
+
+    /* Laptops (992px to 1199px) */
+    @media (max-width: 1199px) {
+      .product-page {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .product-image,
+      .product-info {
+        width: 48%;
+      }
+
+      .thumbnails img {
+        width: 22%;
+      }
+
+      .similar-product {
+        width: 30%;
+      }
+    }
+
+    /* Tablets (768px to 991px) */
+    @media (max-width: 991px) {
+      .product-page {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-image,
+      .product-info {
+        width: 90%;
+        margin: 20px 0;
+      }
+
+      .thumbnails img {
+        width: 30%;
+      }
+
+      .similar-product {
+        width: 45%;
+      }
+
+      .wishlist-btn,
+      .add-to-cart-btn {
+        width: 100%;
+      }
+    }
+
+    /* Mobile (up to 767px) */
+    @media (max-width: 767px) {
+      .product-page {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-image,
+      .product-info {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .product-image img {
+        height: auto;
+      }
+
+      .thumbnails img {
+        width: 48%;
+      }
+
+      .similar-product {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .wishlist-btn,
+      .add-to-cart-btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>  
 <body>  
   <div class="product-page">  
-   <div class="product-image">  
-    <img src="" alt="Product Image" id="img">  
-    <div class="thumbnails">  
-      <img src="thumbnail1.jpg" alt="Thumbnail 1">  
-      <img src="thumbnail2.jpg" alt="Thumbnail 2">  
-      <img src="thumbnail3.jpg" alt="Thumbnail 3">  
-      <img src="thumbnail4.jpg" alt="Thumbnail 4">  
-    </div>  
-   </div>  
-   <div class="product-info">  
-    <h2 id="head"></h2>  
-    <p id="price"></p>  
-    <div class="size-selector">  
-      <button class="size-btn" data-size="S">S</button>  
-      <button class="size-btn" data-size="M">M</button>  
-      <button class="size-btn" data-size="L">L</button>  
-      <button class="size-btn" data-size="XL">XL</button>  
-      <button class="size-btn" data-size="XXL">XXL</button>  
-    </div>  
-    <button class="wishlist-btn">Wishlist</button>  
-    <button class="add-to-cart-btn">Add to Cart</button>  
-    <p>Light Gray solid Top, has a boat neck, 3/4 sleeves</p>  
-    <p>Material: Cotton</p>  
-    <p>Machine-wash</p>  
-    <p>Wind in Store, StoreWear</p>  
-   </div>  
-   <div class="similar-products">  
-    <h3>Similar Products</h3>  
-    <div class="similar-product">  
-      <img src="png/product-01.jpg" alt="Similar Product 1">  
-      <p>Navy Blue Dots Knit Top</p>  
-      <p>$39</p>  
-    </div>  
-    <div class="similar-product">  
-      <img src="png/product-02.jpg" alt="Similar Product 2">  
-      <p>Minimal Black Top</p>  
-      <p>$59</p>  
-    </div>  
-    <div class="similar-product">  
-      <img src="png/product-03.jpg" alt="Similar Product 3">  
-      <p>Blue Nautical Top</p>  
-      <p>$35</p>  
-    </div>  
-    <div class="similar-product">  
-      <img src="product-04.jpg" alt="Similar Product 4">  
-      <p>Navy Blue Checkered Top</p>  
-      <p>$42</p>  
-    </div>  
-   </div>  
+    <div class="product-image">  
+      <img src="" alt="Product Image" id="img">  
+      <div class="thumbnails">  
+        <img src="thumbnail1.jpg" alt="Thumbnail 1">  
+        <img src="thumbnail2.jpg" alt="Thumbnail 2">  
+        <img src="thumbnail3.jpg" alt="Thumbnail 3">  
+        <img src="thumbnail4.jpg" alt="Thumbnail 4">  
+      </div>  
+    </div>  
+    <div class="product-info">  
+      <h2 id="head"></h2>  
+      <p id="price"></p>  
+      <div class="size-selector">  
+        <button class="size-btn" data-size="S">S</button>  
+        <button class="size-btn" data-size="M">M</button>  
+        <button class="size-btn" data-size="L">L</button>  
+        <button class="size-btn" data-size="XL">XL</button>  
+        <button class="size-btn" data-size="XXL">XXL</button>  
+      </div>  
+      <button class="wishlist-btn">Wishlist</button>  
+      <button class="add-to-cart-btn">Add to Cart</button>  
+      <p id="head"></p>  
+      <p>Material: Cotton</p>  
+      <p>Machine-wash</p>  
+      <p>Wind in Store, StoreWear</p>  
+    </div>  
+    <div class="similar-products">  
+      <h3>Similar Products</h3>  
+      <div class="similar-product">  
+        <img src="png/product-01.jpg" alt="Similar Product 1">  
+        <p>Navy Blue Dots Knit Top</p>  
+        <p>$39</p>  
+      </div>  
+      <div class="similar-product">  
+        <img src="png/product-02.jpg" alt="Similar Product 2">  
+        <p>Minimal Black Top</p>  
+        <p>$59</p>  
+      </div>  
+      <div class="similar-product">  
+        <img src="png/product-03.jpg" alt="Similar Product 3">  
+        <p>Blue Nautical Top</p>  
+        <p>$35</p>  
+      </div>  
+      <div class="similar-product">  
+        <img src="product-04.jpg" alt="Similar Product 4">  
+        <p>Navy Blue Checkered Top</p>  
+        <p>$42</p>  
+      </div>  
+    </div>  
   </div>  
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
   <script>
-  $(document).ready(function() {  
-  // Size selector functionality  
-  $('.size-btn').on('click', function() {  
-   $(this).addClass('selected').siblings().removeClass('selected');  
-  });  
-  
-  // Wishlist button functionality  
-  $('.wishlist-btn').on('click', function() {  
-   alert('Added to wishlist!');  
-  });  
-  
-  // Add to cart button functionality  
-  $('.add-to-cart-btn').on('click', function() {  
-   alert('Added to cart!');  
-  });  
-  
+    $(document).ready(function() {  
+      // Size selector functionality  
+      $('.size-btn').on('click', function() {  
+        $(this).addClass('selected').siblings().removeClass('selected');  
+      });  
 
-function getData(data){
-  const urlhead = new URLSearchParams(window.location.search);
-  return urlhead.get(data);
-}
-  const name = getData('name');
-  const price = getData('price');
-  const img = getData('img');
+      // Wishlist button functionality  
+      $('.wishlist-btn').on('click', function() {  
+        alert('Added to wishlist!');  
+      });  
 
-  $('#head').html(name);
-  $('#price').html(price)
-  $('#img').attr('src', 'png/$(img)')
+      // Add to cart button functionality  
+      $('.add-to-cart-btn').on('click', function() {  
+        alert('Added to cart!');  
+      });  
 
-});
-</script>  
+      // Function to get product data from URL query parameters
+      function getData(data){
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(data);
+      }
+
+      const name = getData('name');
+      const price = getData('price');
+      const img = getData('img');
+
+      $('#head').html(name);
+      $('#price').html(price);
+      $('#img').attr('src', `png/${img}`);
+    });
+  </script>
 </body>  
 </html>
