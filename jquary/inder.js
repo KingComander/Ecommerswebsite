@@ -88,67 +88,6 @@ $.ajax({
             }
         }
     );
-   
-   function showCategory(category) {
-     if (category === 'All-products') {
-       $('.clothe > div').show(); // Show all categories
-       $('.shoe > div').show();
-       $('.accessorie > div').show();
-       $('.belt > div').show();
-       $('.watch > div').show();
-     } else if(category === 'Clothes') {
-       $('.clothe > div').show(); // Show all categories
-       $('.accessorie > div').hide();
-       $('.belt > div').hide();
-       $('.shoe > div').hide();
-       $('.watch > div').hide(); // Hide all categories
-     }else if (category === 'Accessories') {
-       $('.clothe > div').hide();
-       $('.accessorie > div').show();
-       $('.belt > div').hide();
-       $('.shoe > div').hide();
-       $('.watch > div').hide(); // Hide all categories
-     }else if (category === 'Belts') {
-       $('.clothe > div').hide();
-       $('.accessorie > div').hide();
-       $('.belt > div').show();0
-       $('.shoe > div').hide();
-       $('.watch > div').hide();// Hide all categories
-     }else if (category === 'Shoes') {
-       $('.clothe > div').hide();
-       $('.accessorie > div').hide();
-       $('.belt > div').hide();
-       $('.shoe > div').show();
-       $('.watch > div').hide(); // Hide all categories
-     }else if (category === 'Watches') {
-       $('.clothe > div').hide(); // Hide all categories
-       $('.accessorie > div').hide();
-       $('.belt > div').hide();
-       $('.shoe > div').hide();
-       $('.watch > div').show();
-     }else{
-       $('.' + category).show(); // Show the selected category
-     }  
-   }
-   
-    // Click event for each link
-            $('.navbr a').click(function(event) {
-                event.preventDefault();  // Prevent default link behavior
-                // Determine the category based on the clicked link
-                const category = $(this).attr('class').split(' ')[0];
-
-                // Show the correct category
-                showCategory(category);
-            });
-
-            // Initially show all products
-            showCategory('All-products');
-            
-            
-            $('form').on('submit', function(e) {  
-   e.preventDefault();  
-   // Handle newsletter subscription  
-  });  
   
 
   // Quick View modal pop-up

@@ -419,13 +419,13 @@
         <div  class="navbr">
             <div class="custom-logo">
               <h2>PRODUCT OVERVIEW</h2>
-              <div class="collapse underline" id="collapse-2">
-                <a class="All-products" href="#All products">All products</a>
-                <a class="Clothes" href="#Clothes">Clothes</a>
-                <a class="Accessories" href="#accessories">accessories</a>
-                <a class="Belts" href="#Belts">Belts</a>
-                <a class="Shoes" href="#Shoes">Shoes</a>
-                <a class="Watches" href="#watches">watches</a>
+              <div class="collapse underline buttons" id="collapse-2">
+                <button data-filter="*" class="All-products" href="#All products">All products</button>
+                <button data-filter=".clothe" class="Clothes" href="#Clothes">Clothes</button>
+                <button data-filter=".accessorie" class="Accessories" href="#accessories">accessories</button>
+                <button data-filter=".belt" class="Belts" href="#Belts">Belts</button>
+                <button data-filter=".shoe" class="Shoes" href="#Shoes">Shoes</button>
+                <button data-filter=".watch" class="Watches" href="#watches">watches</button>
               </div>
             </div>
             <div class="icon down">
@@ -437,8 +437,8 @@
                 <i class="bx bx-menu"></i>
             </div>
         </div>
-        <div id="product">
-            <div class="clothe">
+        <div id="product" class="products">
+            <div class="pro clothe">
                 <a href="product-detail.html?name=Stylish%20Shirt&&price=1200&&img=product-01.jpg">
                     <div class="card">
                         <div class="wrapper">
@@ -460,7 +460,7 @@
                 </a>
             </div>
         
-            <div class="accessorie">
+            <div class="pro accessorie">
                 <a href="product-detail.html?name=Fashionable%20Sunglasses&&price=300&&img=product-04.jpg">
                     <div class="card">
                         <div class="wrapper">
@@ -472,7 +472,7 @@
                 </a>
             </div>
         
-            <div class="belt">
+            <div class="pro belt">
                 <a href="product-detail.html?name=Leather%20Belt&&price=400&&img=product-05.jpg">
                     <div class="card">
                         <div class="wrapper">
@@ -484,7 +484,7 @@
                 </a>
             </div>
         
-            <div class="shoe">
+            <div class="pro shoe">
                 <a href="product-detail.html?name=Casual%20Sneakers&&price=800&&img=product-09.jpg">
                     <div class="card">
                         <div class="wrapper">
@@ -496,7 +496,7 @@
                 </a>
             </div>
         
-            <div class="watch">
+            <div class="pro watch">
                 <a href="product-detail.html?name=Elegant%20Watch&&price=1500&&img=product-15.jpg">
                     <div class="card">
                         <div class="wrapper">
@@ -553,6 +553,7 @@
 
   <!-- SCRIPT -->
 <script src="jquary/inder.js"></script>
+<script src="jquary/products.js"></script>
 <script src="jquary/URLsearchParams.js"></script>
 
 
