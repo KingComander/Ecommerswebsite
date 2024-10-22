@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <!-- Boxicons CDN -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f3f4f7;
+        }
+
+        .form-box {
+            background-color: white;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            margin: 5% auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .input:focus {
+            border-color: #6c63ff;
+        }
+
+        button {
+            width: 100%;
+            background-color: #6c63ff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5a53d6;
+        }
+
+        .form-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-section a {
+            color: #6c63ff;
+            text-decoration: none;
+        }
+
+        .form-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Icons */
+        .bx {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .form-box {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 22px;
+            }
+
+            .input {
+                padding: 10px;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .form-box {
+                width: 100%;
+                padding: 15px;
+                box-shadow: none;
+                margin: 10% 0;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            .input {
+                padding: 8px;
+                font-size: 13px;
+            }
+
+            button {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .form-box {
+                max-width: 500px;
+            }
+
+            .title {
+                font-size: 26px;
+            }
+
+            .input {
+                padding: 14px;
+                font-size: 16px;
+            }
+
+            button {
+                padding: 14px;
+                font-size: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="form-box">
+        <form class="form" id="signup-form">
+            <span class="title">Sign up</span>
+            <span class="subtitle">Create a free account with your email.</span>
+
+            <div class="form-container">
+                <input type="text" class="input" id="fname" placeholder="Full Name" required>
+                <input type="email" class="input" id="email" placeholder="Email" required>
+                <input type="text" class="input" id="number" placeholder="Mobile No." required>
+                <input type="password" class="input" id="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit">Sign up</button>
+        </form>
+
+        <div class="form-section">
+            <p>Have an account? <a href="login.html">Log in</a></p>
+        </div>
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Prevent form resubmission
+        $(document).ready(function () {
+            if (window.history.replaceState) {
+                window.history.replaceState(null, null, window.location.href);
+            }
+
+            // Handle form submission using jQuery
+            $('#signup-form').on('submit', function (event) {
+                event.preventDefault();
+
+                let name = $('#fname').val();
+                let email = $('#email').val();
+                let number = $('#number').val();
+                let password = $('#password').val();
+
+                console.log("User Name: " + name);
+                console.log("Email: " + email);
+                console.log("Mobile Number: " + number);
+                console.log("Password: " + password);
+
+                // Add your form submission logic here (AJAX, validation, etc.)
+                alert('Form submitted successfully!');
+            });
+        });
+    </script>
+</body>
+
+</html>
