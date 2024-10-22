@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="/CSS/footer.css">
     <link rel="stylesheet" href="/CSS/product.css">
 
+    <!-- script -->
+    <script src="jquary/inder.js"></script>
+    <script src="jquary/products.js"></script>
+    
     <style>
         @font-face {
             font-family: 'Cooper';
@@ -32,107 +36,150 @@
     </style>
 </head>
 <body>
-  <!-- header -->
-    <div class="navbar-wrapper"></div>
+  <header>
+
+    <div class="navbar-wrapper">
         <nav class="navbar">
             <div class="nav-logo">
                 <a class="navbar-brand" href="">
-                  <img src="png\1000100751-unscreen.gif" alt="Logo" class="custom-logo">
-                </a>
-                <div class="collapse" id="collapse-1">
-                        <a href="index.html">Home</a>
-                        <a href="">Shop</a>
-                        <a target="_blank" href="/shopingcart.html">Features</a>
-                        <a target="_blank" href="/blog.html">Blog</a>
-                        <a target="_blank" href="/about.html">About</a>
-                        <a target="_blank" href="/contact.html">Contact</a>
-                </div>
-            </div>
-            <div class="icon">
+                    <img src="png\1000100751-unscreen.gif" alt="Logo" class="custom-logo">
+            </a>
+            <div class="collapse" id="collapse-1">
+                    <a href="">Home</a>
+                    <a target="_blank" href="/product.html">Shop</a>
+                    <a target="_blank" href="/shopingcart.html">Features</a>
+                    <a target="_blank" href="/blog.html">Blog</a>
+                    <a target="_blank" href="/about.html">About</a>
+                    <a target="_blank" href="/contact.html">Contact</a>
+                  </div>
+          </div>
+          <div class="icon">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                 <i class="bx bx-search"></i> <!-- Example icon -->
-                <i class='bx bxs-cart-alt'></i>
-                <i class='bx bx-heart'></i>
-                <div class="user-profile" id="userIcon">
-                    <i class="bx bx-user"></i> <!-- User icon -->
-                    <span id="username">Username</span>
-                </div>
+                <!-- <i class="zmdi zmdi-search"></i> -->
             </div>
-            <!-- Hamburger menu for smaller screens -->
-            <div class="hamburger-menu" id="hamburger-menu-1">
-                <i class="bx bx-menu"></i>
-            </div>
-        </nav>
-    </div>
 
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="0">
+                <i class='bx bxs-cart-alt'></i>
+                <!-- <i class="zmdi zmdi-shopping-cart"></i> -->
+            </div>
+
+            <span id="wishlist-icon" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
+                <!-- <i class="zmdi zmdi-favorite-outline"></i> -->
+                <i class='bx bx-heart'></i>
+                <span id="wishlist-notification" class="notification-count" style="display: none;"></span>
+            </span>
+            
+        
+            <div class="user-profile" id="userIcon">
+                <i class="bx bx-user"></i> <!-- User icon -->
+                <span id="username">Username</span>
+            </div>
+        </div>
+        <!-- Hamburger menu for smaller screens -->
+        <div class="hamburger-menu" id="hamburger-menu-1">
+            <i class="bx bx-menu"></i>
+        </div>
+    </nav>
+</div>
+</header>
     <!-- product -->
     <section id="product">
-        <div  class="navbr">
-            <div class="custom-logo">
-              <h2>PRODUCT OVERVIEW</h2>
-              <div class="collapse underline" id="collapse-2">
-                <a class="All-products" href="#All products">All products</a>
-                <a class="Clothes" href="#Clothes">Clothes</a>
-                <a class="Accessories" href="#accessories">accessories</a>
-                <a class="Belts" href="#Belts">Belts</a>
-                <a class="Shoes" href="#Shoes">Shoes</a>
-                <a class="Watches" href="#watches">watches</a>
-              </div>
-            </div>
-            <div class="icon down">
-              <i class='bx bx-filter'>filter</i>
-              <i class="bx bx-search"></i>
-            </div>
-            <!-- Hamburger menu for smaller screens -->
-            <div class="hamburger-menu" id="hamburger-menu-2">
-                <i class="bx bx-menu"></i>
-            </div>
-        </div>
-        <div id="product">
-          
-          <div class="clothe">
-              <div class="card">
-                <div class="wrapper">
-                  <img src="png/product-01.jpg" class="cover-image" />
-                </div>
-                <h4 class="title"></h4>
-                <img src="/png/tinywow_change_bg_photo_63599297.png" class="character" />
-              </div>
-              <div class="card">
-                <div class="wrapper">
-                  <img src="png/product-03.jpg" class="cover-image" />
-                </div>
-                <h4 class="title"></h4>
-                <img src="/png/IMG_20240901_103124.png" class="character" />
-              </div>
-          </div>
-          
-          <div class="accessorie">
-            
-          </div>
-          
-          <div class="belt">
-            
-          </div>
-          
-          <div class="shoe">
-            <div class="card">
-              <div class="wrapper">
-                <img src="png/product-09.jpg" class="cover-image" />
-              </div>
-              <h4 class="title"></h4>
-              <img src="/png/IMG_20240901_104519.png" class="character" />
+      <div  class="navbr">
+          <div class="custom-logo">
+            <h2>PRODUCT OVERVIEW</h2>
+            <div class="collapse underline buttons" id="collapse-2">
+              <button data-filter="*" class="All-products" href="#All products">All products</button>
+              <button data-filter=".clothe" class="Clothes" href="#Clothes">Clothes</button>
+              <button data-filter=".accessorie" class="Accessories" href="#accessories">accessories</button>
+              <button data-filter=".belt" class="Belts" href="#Belts">Belts</button>
+              <button data-filter=".shoe" class="Shoes" href="#Shoes">Shoes</button>
+              <button data-filter=".watch" class="Watches" href="#watches">watches</button>
             </div>
           </div>
-          
-          <div class="watch">
-            <div class="card">
-              <div class="wrapper">
-                <img src="png/product-15.jpg" class="cover-image" />
-              </div>
+          <div class="icon down">
+            <i class='bx bx-filter'>filter</i>
+            <i class="bx bx-search"></i>
           </div>
-          
-        </div>
-    </section>
+          <!-- Hamburger menu for smaller screens -->
+          <div class="hamburger-menu" id="hamburger-menu-2">
+              <i class="bx bx-menu"></i>
+          </div>
+      </div>
+      <div id="product" class="products">
+          <div class="pro clothe">
+              <a href="product-detail.html?name=Stylish%20Shirt&&price=$1200&&img=product-01.jpg">
+                  <div class="card">
+                      <div class="wrapper">
+                          <img src="png\product-01.jpg" class="cover-image" />
+                      </div>
+                      <h4 class="title">Stylish Shirt</h4>
+                      <p class="price">$1200</p>
+                  </div>
+              </a>
+      
+              <a href="product-detail.html?name=Trendy%20Jacket&&price=$1500&&img=product-03.jpg">
+                  <div class="card">
+                      <div class="wrapper">
+                          <img src="png\product-03.jpg" class="cover-image" />
+                      </div>
+                      <h4 class="title">Trendy Jacket</h4>
+                      <p class="price">$1500</p>
+                  </div>
+              </a>
+          </div>
+      
+          <div class="pro accessorie">
+              <a href="product-detail.html?name=Fashionable%20Sunglasses&&price=$300&&img=product-04.jpg">
+                  <div class="card">
+                      <div class="wrapper">
+                          <img src="png/product-04.jpg" class="cover-image" />
+                      </div>
+                      <h4 class="title">Fashionable Sunglasses</h4>
+                      <p class="price">$300</p>
+                  </div>
+              </a>
+          </div>
+      
+          <div class="pro belt">
+              <a href="product-detail.html?name=Leather%20Belt&&price=$400&&img=product-05.jpg">
+                  <div class="card">
+                      <div class="wrapper">
+                          <img src="png/product-05.jpg" class="cover-image" />
+                      </div>
+                      <h4 class="title">Leather Belt</h4>
+                      <p class="price">$400</p>
+                  </div>
+              </a>
+          </div>
+      
+          <div class="pro shoe">
+              <a href="product-detail.html?name=Casual%20Sneakers&&price=$800&&img=product-09.jpg">
+                  <div class="card">
+                      <div class="wrapper">
+                          <img src="png/product-09.jpg" class="cover-image" />
+                      </div>
+                      <h4 class="title">Casual Sneakers</h4>
+                      <p class="price">$800</p>
+                  </div>
+              </a>
+          </div>
+      
+          <div class="pro watch">
+              <a href="product-detail.html?name=Elegant%20Watch&&price=$1500&&img=product-15.jpg">
+                  <div class="card">
+                      <div class="wrapper">
+                          <img src="png/product-15.jpg" class="cover-image" />
+                      </div>
+                      <h4 class="title">Elegant Watch</h4>
+                      <p class="price">$1500</p>
+                  </div>
+              </a>
+          </div>
+      </div>
+      
+      
+</section>
 
     <!-- footer -->
     <footer>  
@@ -173,9 +220,6 @@
          </div>  
         </div>  
        </footer>
-
-    <!-- jQuery Script -->
-    <script src="jquary/inder.js"></script>
 
 </body>
 </html>
