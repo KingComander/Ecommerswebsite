@@ -109,6 +109,7 @@
 
 .card:hover .title {
   transform: translate3d(0%, -50px, 100px);
+  text-shadow: 0 0 5px blue;
 }
 
 /* Price Styles */
@@ -120,10 +121,13 @@
   text-align: center;
   margin-top: 10px;
   transition: color 0.3s;
+  transition: transform 0.5s;
 }
 
 .card:hover .price {
   color: #FF4500; /* Change color on hover */
+  transform: translate3d(0%, -50px, 100px);
+  margin-left: 10%;
 }
 
 /* Character Animation */
