@@ -1,160 +1,262 @@
-/* styles.css */
-
+/* General styles */
 body {
-    font-family: Arial, sans-serif;
-}
-
-.bg0 {
-    background-color: #f0f0f0;
-}
-
-.p-t-75 {
-    padding-top: 75px;
-}
-
-.p-b-85 {
-    padding-bottom: 85px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    width: 100%;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
+/* Breadcrumb */
+.bread-crumb {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.col-lg-10 {
-    flex: 0 0 83.33333%;
+.bread-crumb a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.col-xl-12 {
-    flex: 0 0 100%;
+.bread-crumb a:hover {
+    color: #0056b3;
 }
 
-.m-lr-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.m-b-50 {
-    margin-bottom: 50px;
-}
-
+/* Table */
 .wrap-table-shopping-cart {
-    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
 .table-shopping-cart {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
 .table_head {
-    background-color: #f1f1f1;
-}
-
-.table_head th {
-    padding: 15px;
+    background-color: #f6f6f6;
     text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
 }
 
 .table_row {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.table_row:hover {
+    background-color: #f1f3f5;
 }
 
 .table_row td {
     padding: 15px;
+    font-size: 15px;
+    color: #666;
 }
 
-.flex-w {
-    display: flex;
-    flex-wrap: wrap;
+.column-1 {
+    width: 100px;
 }
 
-.flex-sb-m {
-    justify-content: space-between;
+.column-1 img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-.bor15 {
-    border-radius: 15px;
+.column-1 img:hover {
+    transform: scale(1.1);
 }
 
-.p-t-18 {
-    padding-top: 18px;
-}
-
-.p-b-15 {
-    padding-bottom: 15px;
-}
-
-.p-lr-40 {
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-.p-lr-15-sm {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.stext-104 {
-    font-size: 16px;
-}
-
-.cl2 {
+.column-2 {
+    max-width: 150px;
+    font-weight: bold;
     color: #333;
 }
 
-.plh4 {
-    color: #999;
+.column-3, .column-4, .column-5 {
+    font-weight: bold;
+    color: #007bff;
 }
 
-.size-117 {
-    width: 100%;
+/* Buttons */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.bor13 {
-    border-radius: 13px;
-}
-
-.m-r-10 {
-    margin-right: 10px;
-}
-
-.m-tb-5 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.flex-c-m {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bg3 {
-    background-color: #007bff;
-}
-
-.cl0 {
+button:hover {
+    background-color: #0056b3;
     color: #fff;
 }
 
-.size-116 {
-    font-size: 16px;
+.flex-c-m button {
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.bor14 {
-    border-radius: 14px;
-}
-
-.hov-btn3:hover {
+.flex-c-m button:hover {
     background-color: #0056b3;
+    transform: translateY(-3px);
 }
 
-.pointer {
+.stext-101 {
+    letter-spacing: 1px;
+}
+
+/* Quantity controls */
+.wrap-num-product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.wrap-num-product input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-num-product-down, .btn-num-product-up {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f6f6;
+    border-left: 1px solid #ddd;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-num-product-down:hover, .btn-num-product-up:hover {
+    background-color: #ddd;
+    transform: scale(1.1);
+}
+
+/* Coupon and Checkout Section */
+.flex-w {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stext-104 {
+    font-size: 14px;
+    color: #555;
+}
+
+input[type="text"] {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .column-2 {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 992px) {
+    .table_row td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrap-table-shopping-cart {
+        overflow-x: auto; /* Allows scrolling if necessary */
+    }
+
+    .table_head {
+        font-size: 12px;
+    }
+
+    .table_row td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .btn-num-product-down, .btn-num-product-up {
+        width: 35px;
+        height: 35px;
+    }
+
+    .wrap-num-product {
+        width: 90px; /* Adjust width for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .column-1 img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .column-2 {
+        font-size: 14px; /* Smaller font for mobile */
+        max-width: 100px; /* Limit width for better fit */
+    }
+
+    .wrap-num-product input {
+        width: 30px; /* Adjust input width for mobile */
+        font-size: 14px; /* Adjust input font size for mobile */
+    }
+
+    .flex-w {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .flex-w > div {
+        margin-bottom: 10px; /* Space between stacked items */
+        width: 100%; /* Full width for buttons */
+    }
+
+    button {
+        width: 100%; /* Full width for mobile buttons */
+        padding: 12px 0; /* Adjust padding */
+    }
 }
