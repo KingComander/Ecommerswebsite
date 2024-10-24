@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .user-info, .payment-method, .promo-code, .shipping-method, .terms {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .grand-total {
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .user-info input, .payment-method select, .promo-code input, .shipping-method select {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #confirm-checkout {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        #confirm-checkout:hover {
+            background-color: #45a049;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .grand-total {
+                font-size: 1.2em;
+            }
+
+            #confirm-checkout {
+                width: 100%;
+            }
+        }
+
+        /* Feedback message style */
+        .feedback {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Order Summary Style */
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .order-summary-item img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .summary-header {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Checkout Page</h1>
+
+    <div class="user-info">
+        <h2>User Information</h2>
+        <input type="text" id="user-name" placeholder="Full Name" required>
+        <input type="email" id="user-email" placeholder="Email Address" required>
+        <input type="text" id="user-address" placeholder="Shipping Address" required>
+        <input type="text" id="billing-address" placeholder="Billing Address (if different)">
+    </div>
+
+    <div class="payment-method">
+        <h2>Payment Method</h2>
+        <select id="payment-method">
+            <option value="credit-card">Credit/Debit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="cash-on-delivery">Cash on Delivery</option>
+        </select>
+    </div>
+
+    <div class="shipping-method">
+        <h2>Shipping Method</h2>
+        <select id="shipping-method">
+            <option value="standard">Standard Shipping (3-5 days)</option>
+            <option value="express">Express Shipping (1-2 days)</option>
+            <option value="overnight">Overnight Shipping</option>
+        </select>
+    </div>
+
+    <div class="promo-code">
+        <h2>Promo Code</h2>
+        <input type="text" id="promo-code" placeholder="Enter Promo Code">
+        <button id="apply-promo">Apply Promo</button>
+        <p id="promo-message" class="error"></p>
+    </div>
+
+    <div class="terms">
+        <label>
+            <input type="checkbox" id="terms-checkbox"> I agree to the terms and conditions
+        </label>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <div class="grand-total">
+        Grand Total: ₹ <span id="grand-total"></span>
+    </div>
+
+    <button id="confirm-checkout">Confirm Purchase</button>
+
+    <!-- Modal for Order Summary -->
+    <div id="order-summary-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Order Summary</h2>
+            <div id="order-summary"></div>
+            <button id="finalize-order">Finalize Order</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve cart data from localStorage
+            const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+            const grandTotal = localStorage.getItem('grandTotal');
+
+            // Display cart items in the table
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItems.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.productName}</td>
+                    <td>₹ ${item.price.toFixed(2)}</td>
+                    <td>${item.quantity}</td>
+                    <td>₹ ${item.total.toFixed(2)}</td>
+                `;
+                cartItemsContainer.appendChild(row);
+            });
+
+            // Display the grand total
+            document.getElementById('grand-total').innerText = grandTotal;
+
+            // Apply Promo Code
+            document.getElementById('apply-promo').addEventListener('click', function() {
+                const promoCode = document.getElementById('promo-code').value.trim();
+                let totalAmount = parseFloat(grandTotal.replace('₹', '').trim());
+                let discount = 0;
+
+                // Example promo codes logic
+                if (promoCode === "DISCOUNT10") {
+                    discount = totalAmount * 0.1; // 10% discount
+                    totalAmount -= discount;
+                    document.getElementById('promo-message').innerText = `Discount Applied: ₹ ${discount.toFixed(2)}`;
+                    document.getElementById('promo-message').classList.remove('error');
+                    document.getElementById('promo-message').classList.add('feedback');
+                } else {
+                    document.getElementById('promo-message').innerText = "Invalid promo code.";
+                    document.getElementById('promo-message').classList.add('error');
+                    return;
+                }
+
+                // Update the grand total
+                document.getElementById('grand-total').innerText = `₹ ${totalAmount.toFixed(2)}`;
+            });
+
+            // Checkout Confirmation
+            const modal = document.getElementById("order-summary-modal");
+            const closeModal = document.getElementsByClassName("close")[0];
+            const orderSummary = document.getElementById("order-summary");
+
+            document.getElementById('confirm-checkout').addEventListener('click', function() {
+                if (!document.getElementById('terms-checkbox').checked) {
+                    alert("You must agree to the terms and conditions.");
+                    return;
+                }
+
+                // Create order summary
+                orderSummary.innerHTML = "";
+                cartItems.forEach(item => {
+                    orderSummary.innerHTML += `
+                        <div class="order-summary-item">
+                            <img src="${item.image}" alt="${item.productName}">
+                            <span>${item.productName}</span>
+                            <span>₹ ${item.total.toFixed(2)}</span>
+                        </div>
+                    `;
+                });
+                orderSummary.innerHTML += `<div class="order-summary-item summary-header">
+                                                <strong>Grand Total: ₹ ${document.getElementById('grand-total').innerText}</strong>
+                                            </div>`;
+
+                // Show modal
+                modal.style.display = "block";
+            });
+
+            // Close modal
+            closeModal.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Finalize Order
+            document.getElementById('finalize-order').addEventListener('click', function() {
+                alert('Thank you for your order! Your order has been confirmed.');
+                window.location.href = 'index.html'; // Redirect to a thank you page
+            });
+        });
+    </script>
+</body>
+</html>
