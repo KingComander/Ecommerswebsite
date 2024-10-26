@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features</title>
     <!-- jQuery -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- Isotope -->
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
@@ -113,9 +115,8 @@
                   </div>
                 </div>
                 <div class="flex-c-m">
-                  <button type="button" class="checkout flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                    Proceed to Checkout
-                  </button>
+                  <button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i> Own Checkout</button>
+
                 </div>
               </div>
     
@@ -175,5 +176,36 @@
          </div>  
         </div>  
        </footer>
+
+       <script>
+        var options = {
+          "key": "rzp_test_kBREEooxYkKLPo", // Enter the Key ID generated from the Dashboard
+          "amount": "1000",
+          "currency": "INR",
+          "name": "King Store",
+          "description": "Test Transaction",
+          "image": "example.com/image/rzp.jpg",
+          "handle": function(response){
+            alert('payment Successfull')
+          },
+          "prefill":{
+            "email": "gaurav.kumar@example.com",
+            "contact": +919900000000,
+          },
+          "notes":{
+            "address":"Razorpay Corporater Office"
+          },
+          "theme":{
+            "color":"#3399cc"
+          }
+          
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function (e) {
+          rzp1.open();
+          e.preventDefault();
+        }
+      </script>
+      
 </body>
 </html>
