@@ -182,6 +182,9 @@
 
 /* Mobile phones */
 @media (max-width: 480px) {
+    .navbar-wrapper,.navbr-wrapper {
+            position:sticky;
+        }
     .container {
         right: 0;
     }
@@ -196,134 +199,167 @@
     }
 }
 
+/* persons */
 
-/* Add media queries as needed */
-
-
-
-      /* persons */
         /* Base styles for all devices */
-        #persons {
-            display: flex;
-            flex-wrap: wrap; /* Allows items to wrap to the next line */
-            gap: 20px; /* Space between items */
-            justify-content: center; /* Center items within the container */
-            padding: 20px;
-        }
+#persons {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 20px; /* Space between items */
+    justify-content: center; /* Center items within the container */
+    padding: 20px;
+}
 
-        .item {
-            position: relative; /* Enables absolute positioning for text */
-            width: 100%; /* Full width on smaller screens */
-            max-width: 35rem; /* Limit the maximum width of each item */
-            margin: 0 auto; /* Center item horizontally within its container */
-            overflow: hidden; /* Ensures no overflow of the image */
-            cursor: pointer; /* Show pointer cursor on hover */
-            box-shadow: 2px 2px 2px 3px black;
-            box-sizing: border-box;
-            border-radius: 20px;
-        }
+.item {
+    position: relative; /* Enables absolute positioning for text */
+    width: 100%; /* Full width on smaller screens */
+    max-width: 35rem; /* Limit the maximum width of each item */
+    margin: 0 auto; /* Center item horizontally within its container */
+    overflow: hidden; /* Ensures no overflow of the image */
+    cursor: pointer; /* Show pointer cursor on hover */
+    box-shadow: 2px 2px 2px 3px black;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
 
-        .item img {
-            width: 100%; /* Image takes full width of the container */
-            height: 100%; /* Set a fixed height */
-            object-fit: cover; /* Ensures the image covers the container */
-            transition: transform 0.5s ease; /* Smooth transitions */
-            filter: brightness(1); /* Default filter */
-            transform: scale(1); /* Default scale */
-        }
+.item img {
+    width: 100%; /* Image takes full width of the container */
+    height: 100%; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the container */
+    transition: transform 0.5s ease; /* Smooth transitions */
+    filter: brightness(1); /* Default filter */
+    transform: scale(1); /* Default scale */
+}
 
-        /* Overlay added on click */
-        .item.clicked img {
-            filter: none; /* Remove filter */
-            transform: scale(1); /* Reset scale */
-            position: relative; /* Ensure positioning context */
-        }
+/* Overlay added on click */
+.item.clicked img {
+    filter: none; /* Remove filter */
+    transform: scale(1); /* Reset scale */
+    position: relative; /* Ensure positioning context */
+}
 
-        .item.clicked::after {
-            content: ''; /* Required for pseudo-element */
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 255, 0.5); /* Blue transparent overlay */
-            z-index: 1; /* Ensure overlay is above image */
-        }
+.item.clicked::after {
+    content: ''; /* Required for pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 255, 0.5); /* Blue transparent overlay */
+    z-index: 1; /* Ensure overlay is above image */
+}
 
-        /* Ensure text is visible above the overlay */
-        .item.clicked h1, 
-        .item.clicked h4 {
-            color: white; /* Change text color to white */
-            z-index: 99;
-        
-        }
+/* Ensure text is visible above the overlay */
+.item.clicked h1, 
+.item.clicked h4 {
+    color: white; /* Change text color to white */
+    z-index: 99;
+}
 
-        .item h1,
-        .item h4 {
-            position: absolute; /* Position text over the image */
-            color: black; /* Default text color */
-            width: 100%; /* Full width to center text */
-            text-align: center; /* Center the text horizontally */
-            margin: 0; /* Remove default margins */
-            left: 25%; /* Center horizontally */
-            transform: translateX(-50%); /* Adjust for horizontal centering */
-        }
+.item h1,
+.item h4 {
+    position: absolute; /* Position text over the image */
+    color: black; /* Default text color */
+    width: 100%; /* Full width to center text */
+    text-align: center; /* Center the text horizontally */
+    margin: 0; /* Remove default margins */
+    left: 25%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for horizontal centering */
+}
 
-        .item h1 {
-            top: 20%; /* Position title */
-            transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
-            font-size: 2rem; /* Font size for title */
-        }
+.item h1 {
+    top: 20%; /* Position title */
+    transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
+    font-size: 2rem; /* Font size for title */
+}
 
-        .item h4 {
-            top: 30%; /* Position subtitle below the title */
-            transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
-            font-size: 1rem; /* Font size for subtitle */
-        }
+.item h4 {
+    top: 30%; /* Position subtitle below the title */
+    transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
+    font-size: 1rem; /* Font size for subtitle */
+}
 
-        .shop-now {
-            position: absolute; /* Position text over the image */
-            bottom: 10%;
-            left: 25%;
-            font-size: 2rem;
-            transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
-            display: none; /* Initially hidden */
-            color: white; /* Text color for 'Shop Now' */
-            text-decoration: underline; /* Underline for anchor tag */
-            margin-top: 10px; /* Space above the anchor tag */
-            z-index: 99;
-        }
-        
-        
-        .underline a:hover{
-          text-decoration: underline;
-        }
-        
-        .down{
-          position: relative;
-          top:10px;
-        }
+.shop-now {
+    position: absolute; /* Position text over the image */
+    bottom: 10%;
+    left: 25%;
+    font-size: 2rem;
+    transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
+    display: none; /* Initially hidden */
+    color: white; /* Text color for 'Shop Now' */
+    text-decoration: underline; /* Underline for anchor tag */
+    margin-top: 10px; /* Space above the anchor tag */
+    z-index: 99;
+}
 
-        /* Media Queries for Responsive Design */
+.underline a:hover{
+    text-decoration: underline;
+}
 
-        /* Large screens (laptops/desktops) */
-        @media (min-width: 1200px) {
-            
-        }
+.down{
+    position: relative;
+    top: 10px;
+}
 
-        /* Medium screens (tablets) */
-        @media (min-width: 768px) and (max-width: 1199px) {
-          
-        }
+/* Media Queries */
 
-        /* Small screens (phones) */
-        @media (max-width: 767px) {
+/* Small screens (up to 600px) */
+@media (max-width: 600px) {
+    .item {
+        max-width: 100%; /* Full width for mobile devices */
+    }
 
-        }
+    .item h1 {
+        font-size: 1.5rem; /* Smaller font size for mobile */
+    }
 
-        @media (max-width: 512px) {
-            
-        }
+    .item h4 {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+
+    .shop-now {
+        font-size: 1.5rem; /* Adjust font size for mobile */
+    }
+}
+
+/* Medium screens (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .item {
+        max-width: 45rem; /* Larger max width for tablets and smaller laptops */
+    }
+
+    .item h1 {
+        font-size: 1.8rem; /* Adjust font size */
+    }
+
+    .item h4 {
+        font-size: 1.1rem; /* Adjust font size */
+    }
+
+    .shop-now {
+        font-size: 1.8rem; /* Adjust font size */
+    }
+}
+
+/* Large screens (1025px and up) */
+@media (min-width: 1025px) {
+    .item {
+        max-width: 35rem; /* Larger items for desktop */
+    }
+
+    .item h1 {
+        font-size: 2rem; /* Keep larger font size for desktops */
+    }
+
+    .item h4 {
+        font-size: 1rem; /* Keep larger font size */
+    }
+
+    .shop-now {
+        font-size: 2rem; /* Keep larger font size */
+    }
+}
+
     </style>
 </head>
 <body>
@@ -616,7 +652,7 @@
       <h3>NEWSLETTER</h3>  
       <form>  
        <input type="email" placeholder="email@example.com">  
-       <button type="submit">SUBSCRIBE</button>  
+       <button type="submit" class="red">SUBSCRIBE</button>  
       </form>  
     </div>  
    </div>  
