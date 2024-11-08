@@ -72,7 +72,7 @@ footer {
     display: inline-block;  
   }  
 
-  button {  
+  .red {  
     background-color: #007bff;  
     color: #fff;  
     border: none;  

@@ -93,8 +93,8 @@ $(document).ready(function() {
 
 const products = [
             { id: 1, name: "Product 1", price: 1000, image: "/png/product-01.jpg" },
-            { id: 1, name: "Product 1", price: 1000, image: "/png/product-01.jpg" },
-            { id: 2, name: "Product 2", price: 1500, image: "/png/product-02.jpg" }
+            { id: 2, name: "Product 2", price: 1000, image: "/png/product-02.jpg" },
+            { id: 3, name: "Product 3", price: 1500, image: "/png/product-03.jpg" }
         ];
 
         function renderCart() {
